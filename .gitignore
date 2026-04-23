@@ -26,3 +26,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.idea/.gitignore
+/.idea/bocconi.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+
+# Compiled CSS and source maps from SCSS
+src/**/*.css
+src/**/*.css.map

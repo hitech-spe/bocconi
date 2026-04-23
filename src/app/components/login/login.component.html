@@ -1,0 +1,51 @@
+<section class="auth-section fade-in">
+    <div class="auth-container">
+        <div class="glass-card auth-card">
+            <h2 class="text-gradient">
+                {{ 'AUTH.LOGIN_TITLE' | translate }}
+            </h2>
+            <p class="subtitle">
+                {{ 'AUTH.LOGIN_SUBTITLE'  | translate }}
+            </p>
+
+            <form (ngSubmit)="onSubmit()" class="auth-form">
+
+                <div class="form-group">
+                    <label for="email">{{ 'AUTH.EMAIL' | translate }}</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="email" required
+                           placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" required
+                           placeholder="********">
+                </div>
+
+                @if (error) {
+                    <div class="status-message error">
+                        {{ (error.startsWith('AUTH.') ? (error | translate) : error) }}
+                    </div>
+                }
+
+                @if (success) {
+                    <div class="status-message success">
+                        {{ success | translate }}
+                    </div>
+                }
+
+
+                <button type="submit" class="btn btn-primary w-100" [disabled]="isLoading">
+                    <span>{{ 'AUTH.LOGIN_BTN'  | translate }}</span>
+                    <span class="spinner"></span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <button (click)="toggleMode()" class="btn-link">
+                    {{ 'AUTH.GO_TO_REGISTER'  | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,255 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "Chi Siamo",
+    "SERVICES": "Servizi",
+    "QUOTE_AI": "Preventivo AI",
+    "QUOTES": "I miei Preventivi",
+    "CONTACT": "Contatti",
+    "LOGIN": "Accedi"
+  },
+  "SERVICES": {
+    "KICKER": "Catalogo servizi",
+    "TITLE": "Le nostre",
+    "SUBTITLE": "Attività",
+    "INTRO": "Soluzioni integrate per officina, noleggio e gestione mezzi: seleziona il servizio più adatto alla tua attività.",
+    "MECHANICAL": {
+      "CATEGORY": "Officina",
+      "TITLE": "Officina Meccanica",
+      "DESC": "Interventi meccanici completi su auto, furgoni e veicoli industriali.",
+      "MORE": "Dettagli"
+    },
+    "BODYWORK": {
+      "CATEGORY": "Carrozzeria",
+      "TITLE": "Officina Carrozzeria",
+      "DESC": "Ripristino carrozzeria e verniciatura con finiture professionali.",
+      "MORE": "Dettagli"
+    },
+    "CONSTRUCTION": {
+      "CATEGORY": "Attrezzature",
+      "TITLE": "Edilizia",
+      "DESC": "Supporto operativo e tecnico per attività in ambito edilizio.",
+      "MORE": "Dettagli"
+    },
+    "MOTO": {
+      "CATEGORY": "Noleggio",
+      "TITLE": "Moto - Caravan",
+      "DESC": "Interventi e assistenza dedicata a moto e caravan.",
+      "MORE": "Dettagli"
+    },
+    "SALES": {
+      "CATEGORY": "Commercio",
+      "TITLE": "Vendita Furgoni, Auto e Veicoli Industriali",
+      "DESC": "Soluzioni di vendita per privati e aziende.",
+      "MORE": "Dettagli"
+    },
+    "DEMOLITION": {
+      "CATEGORY": "Industria",
+      "TITLE": "Demolizioni Industriali",
+      "DESC": "Interventi di demolizione industriale in sicurezza e conformità.",
+      "MORE": "Dettagli"
+    },
+    "RECOVERY": {
+      "CATEGORY": "Sostenibilità",
+      "TITLE": "Recupero e Smaltimento Materiale Ferroso",
+      "DESC": "Raccolta, recupero e gestione del materiale ferroso.",
+      "MORE": "Dettagli"
+    },
+    "REVISIONS": {
+      "CATEGORY": "Conformità",
+      "TITLE": "Revisioni e Collaudi",
+      "DESC": "Controlli tecnici e collaudi per mantenere i mezzi in regola.",
+      "MORE": "Dettagli"
+    },
+    "PLATES": {
+      "CATEGORY": "Documentazione",
+      "TITLE": "Targhe Gialle - Verifiche Periodiche - ATP",
+      "DESC": "Gestione pratiche e verifiche dedicate.",
+      "MORE": "Dettagli"
+    },
+    "TIRES": {
+      "CATEGORY": "Ricambi",
+      "TITLE": "Pneumatici, Allestimento Veicoli e Ricambi",
+      "DESC": "Vendita e sostituzione pneumatici, allestimenti e ricambi.",
+      "MORE": "Dettagli"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contatta",
+    "SUBTITLE": "BOCCONI SRL",
+    "INFO": "Informazioni",
+    "INFO_DESC": "Siamo a disposizione per assistenza, preventivi e informazioni sui nostri servizi.",
+    "NAME": "Nome",
+    "NAME_PLACEHOLDER": "Il tuo nome",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "La tua email",
+    "MESSAGE": "Messaggio",
+    "MESSAGE_PLACEHOLDER": "Scrivi qui la tua richiesta",
+    "SEND": "Invia Messaggio",
+    "SENDING": "Invio in corso...",
+    "SUCCESS": "Messaggio inviato con successo!",
+    "ERROR": "Errore durante l'invio. Riprova più tardi."
+  },
+  "HOME": {
+    "HERO": {
+      "KICKER": "Officina & Noleggio Professionale",
+      "TITLE": "Esperienza e servizi",
+      "SUBTITLE": "per il tuo veicolo",
+      "DESC": "BOCCONI SRL opera a Massafra con esposizione veicoli e officina specializzata, offrendo soluzioni complete per privati e aziende.",
+      "CTA_SERVICES": "Scopri i servizi",
+      "CTA_CONTACT": "Richiedi informazioni",
+      "HIGHLIGHTS": {
+        "FAST": {
+          "TITLE": "Interventi rapidi",
+          "DESC": "Diagnosi e riparazioni per mezzi commerciali e industriali"
+        },
+        "FLEET": {
+          "TITLE": "Flotta noleggio",
+          "DESC": "Veicoli e attrezzature disponibili con formule flessibili"
+        },
+        "SUPPORT": {
+          "TITLE": "Supporto dedicato",
+          "DESC": "Consulenza tecnica e assistenza programmata"
+        }
+      },
+      "METRICS": {
+        "SUPPORT": "Supporto operativo",
+        "SERVICES": "Servizi specializzati",
+        "CUSTOMER": "Orientamento al cliente"
+      }
+    },
+    "FEATURES": {
+      "FAST": {
+        "TAG": "Officina",
+        "TITLE": "Due sedi operative",
+        "DESC": "Esposizione veicoli in Contrada Sandergio snc e officina in Via Chiatona 26, Massafra."
+      },
+      "CUTTING": {
+        "TAG": "Noleggio",
+        "TITLE": "Servizi completi",
+        "DESC": "Dalla meccanica alla carrozzeria, fino a revisioni, ricambi e allestimenti."
+      },
+      "SECURE": {
+        "TAG": "Affidabilità",
+        "TITLE": "Affidabilità professionale",
+        "DESC": "Assistenza qualificata per auto, furgoni, moto, caravan e veicoli industriali."
+      }
+    },
+    "STATS": {
+      "PROJECTS": "Progetti Completati",
+      "CLIENTS": "Clienti Felici",
+      "EXPERIENCE": "Anni di Esperienza",
+      "TEAM": "Esperti nel Team"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "Cosa dicono i",
+      "SUBTITLE": "Nostri Clienti",
+      "1": {
+        "NAME": "Marco Rossi",
+        "ROLE": "CEO, TechStart",
+        "TEXT": "Un team eccezionale. Hanno trasformato la nostra idea in un'app di successo in tempi record."
+      },
+      "2": {
+        "NAME": "Laura Bianchi",
+        "ROLE": "Product Manager, E-Shop Pro",
+        "TEXT": "Professionalità e competenza tecnica incredibili. Consigliatissimi per progetti complessi."
+      },
+      "3": {
+        "NAME": "Giulia Verdi",
+        "ROLE": "Founder, GreenApp",
+        "TEXT": "Sanno ascoltare le esigenze del cliente e trovare sempre la soluzione tecnica migliore."
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "Chi siamo",
+    "P1": "BOCCONI SRL è una realtà specializzata in servizi per il settore automotive e industriale, con sede a Massafra e una struttura operativa completa.",
+    "P2": "Offriamo competenza tecnica, rapidità e attenzione al cliente in ogni fase: dalla vendita veicoli all’assistenza in officina, fino ai servizi specialistici.",
+    "MISSION_TITLE": "La nostra Mission",
+    "MISSION_DESC": "Fornire servizi affidabili e professionali per garantire sicurezza, efficienza e continuità operativa a privati e aziende."
+  },
+  "FOOTER": {
+    "RIGHTS": "Tutti i diritti riservati.",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "Terms of Service"
+  },
+  "SERVICE_DETAIL": {
+    "BACK": "Torna ai Servizi",
+    "SOLUTION_DETAIL": "Dettaglio Soluzione",
+    "OFFERING": "Cosa offriamo",
+    "INTERESTED": "Interessato a questa soluzione?",
+    "CTA_DESC": "Inizia oggi il tuo percorso verso l'innovazione digitale.",
+    "GET_QUOTE": "Richiedi Preventivo",
+    "NOT_FOUND": "Servizio non trovato",
+    "NOT_FOUND_DESC": "Spiacenti, il servizio richiesto non è disponibile.",
+    "BACK_TO_LIST": "Torna alla lista"
+  },
+  "QUOTE": {
+    "TITLE": "Simulatore",
+    "SUBTITLE": "Preventivo AI",
+    "INPUT_TITLE": "Descrivi il tuo progetto",
+    "INPUT_DESC": "Usa il linguaggio naturale. Più dettagli fornisci, più precisa sarà l'AI.",
+    "PLACEHOLDER": "Esempio: Vorrei un'app mobile per la gestione di una palestra con login utenti e pagamenti...",
+    "GENERATE": "Genera Preventivo",
+    "GENERATING": "Generazione in corso...",
+    "ANALYZING": "L'AI sta analizzando i requisiti...",
+    "RESULT_TITLE": "Stima AI del Progetto",
+    "ESTIMATED_COST": "Costo Stimato",
+    "ESTIMATED_TIME": "Tempo di Sviluppo",
+    "FEATURES_IDENTIFIED": "Funzionalità identificate:",
+    "WANT_PRECISE": "Vuoi un preventivo ufficiale?",
+    "NAME_PLACEHOLDER": "Il tuo nome",
+    "EMAIL_PLACEHOLDER": "Inserisci la tua email",
+    "SEND_ME_PDF": "Ricevi i dettagli via mail",
+    "SENDING": "Invio...",
+    "SUCCESS": "Dettagli inviati! Ti contatteremo presto.",
+    "ERROR": "Errore nell'invio. Riprova più tardi."
+  },
+  "QUOTES": {
+    "TITLE": "Gestione",
+    "SUBTITLE": "Preventivi Clienti",
+    "NEW_QUOTE": "Nuovo Preventivo",
+    "CLIENT_NAME": "Nome Cliente",
+    "CLIENT_NAME_PLACEHOLDER": "Inserisci il nome del cliente",
+    "COMPANY": "Azienda",
+    "COMPANY_PLACEHOLDER": "Nome azienda (opzionale)",
+    "EMAIL": "Email Cliente",
+    "PHONE": "Telefono Cliente",
+    "ITEMS": "Voci Preventivo",
+    "ADD_ITEM": "Aggiungi Voce",
+    "ITEM_DESC": "Descrizione servizio",
+    "TOTAL": "Totale",
+    "SAVE": "Salva Preventivo",
+    "DOWNLOAD_PDF": "Scarica PDF",
+    "HISTORY": "Storico Preventivi",
+    "NO_HISTORY": "Nessun preventivo salvato.",
+    "SUCCESS_SAVE": "Preventivo salvato correttamente!",
+    "SELECT_CLIENT": "Seleziona Cliente",
+    "NEW_CLIENT": "Nuovo Cliente",
+    "ADDRESS": "Indirizzo",
+    "ADDRESS_PLACEHOLDER": "Via, Città, CAP",
+    "LOAD_QUOTE": "Carica nel form"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Bentornato",
+    "REGISTER_TITLE": "Crea Account",
+    "LOGIN_SUBTITLE": "Accedi al tuo account",
+    "REGISTER_SUBTITLE": "Unisciti a BOCCONI SRL",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Conferma Password",
+    "FIRST_NAME": "Nome",
+    "LAST_NAME": "Cognome",
+    "FIRST_NAME_PLACEHOLDER": "Inserisci il tuo nome",
+    "LAST_NAME_PLACEHOLDER": "Inserisci il tuo cognome",
+    "LOGIN_BTN": "Accedi",
+    "REGISTER_BTN": "Registrati",
+    "LOGOUT": "Esci",
+    "GO_TO_REGISTER": "Non hai un account? Registrati",
+    "GO_TO_LOGIN": "Hai già un account? Accedi",
+    "ERROR_MATCH": "Le password non corrispondono",
+    "ERROR_REQUIRED_FIELDS": "Nome e cognome sono obbligatori",
+    "ERROR_GENERIC": "Si è verificato un errore. Riprova.",
+    "SUCCESS_REGISTER": "Account creato con successo! Ora puoi accedere."
+  }
+}

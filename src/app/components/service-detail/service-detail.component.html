@@ -1,0 +1,46 @@
+@if (service) {
+  <section class="service-detail fade-in">
+    <div class="back-nav">
+      <a [routerLink]="['/home']" fragment="services" class="back-link">
+        <span class="icon">←</span> {{ 'SERVICE_DETAIL.BACK' | translate }}
+      </a>
+    </div>
+    <div class="detail-header">
+      <div class="icon-wrapper">
+        <span class="service-icon">{{service.icon}}</span>
+      </div>
+      <h1 class="text-gradient">{{service.title}}</h1>
+      <p class="lead-text">{{service.description}}</p>
+    </div>
+    <div class="detail-content">
+      <div class="glass-card main-info">
+        <h3>{{ 'SERVICE_DETAIL.SOLUTION_DETAIL' | translate }}</h3>
+        <p>{{service.fullContent}}</p>
+      </div>
+      <div class="glass-card features-list">
+        <h3>{{ 'SERVICE_DETAIL.OFFERING' | translate }}</h3>
+        <ul>
+          @for (feature of service.features; track feature) {
+            <li>
+              <span class="check-icon">✓</span> {{feature}}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="cta-section">
+      <div class="glass-card cta-card">
+        <h3>{{ 'SERVICE_DETAIL.INTERESTED' | translate }}</h3>
+        <!--p>{{ 'SERVICE_DETAIL.CTA_DESC' | translate }}</p-->
+        <a routerLink="/contact" class="btn btn-primary">{{ 'SERVICE_DETAIL.GET_QUOTE' | translate }}</a>
+      </div>
+    </div>
+  </section>
+} @else {
+  <div class="not-found">
+    <h2 class="text-gradient">{{ 'SERVICE_DETAIL.NOT_FOUND' | translate }}</h2>
+    <p>{{ 'SERVICE_DETAIL.NOT_FOUND_DESC' | translate }}</p>
+    <a routerLink="/services" class="btn btn-outline">{{ 'SERVICE_DETAIL.BACK_TO_LIST' | translate }}</a>
+  </div>
+}
+

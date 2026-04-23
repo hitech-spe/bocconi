@@ -1,0 +1,183 @@
+.services {
+  padding: 8rem 0;
+  background: var(--bg-light);
+
+  .services-header {
+    max-width: 900px;
+    margin: 0 auto 5rem;
+    text-align: center;
+    padding: 0 2rem;
+
+    .services-kicker {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .services-intro {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0; // Sezioni adiacenti come Volta
+    padding: 0;
+
+    .service-card {
+      position: relative;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: none;
+      transition: none;
+
+      &:nth-child(even) {
+        .service-media {
+          order: 2;
+        }
+        .service-content {
+          order: 1;
+        }
+      }
+
+      .service-media {
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: scale(1.1);
+        transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .service-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem;
+        background: var(--bg-white);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s, 
+                    transform 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+      }
+
+      &.is-visible {
+        .service-media {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .service-content {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .service-category {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        margin-bottom: 2rem;
+      }
+
+      h3 {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 2rem;
+        line-height: 1.1;
+
+        .icon {
+          display: none;
+        }
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        max-width: 500px;
+      }
+
+      .more-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--text-main);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &::after {
+          content: '→';
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &:hover {
+        .more-link {
+          color: var(--accent);
+          &::after {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .services {
+    .services-grid {
+      .service-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+
+        .service-media {
+          height: 400px;
+          order: 1 !important;
+        }
+
+        .service-content {
+          order: 2 !important;
+          padding: 3rem 2rem;
+        }
+      }
+    }
+  }
+}

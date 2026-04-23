@@ -1,0 +1,243 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "SERVICES": "Services",
+    "QUOTE_AI": "AI Quote",
+    "QUOTES": "My Quotes",
+    "CONTACT": "Contact"
+  },
+  "SERVICES": {
+    "KICKER": "Service catalog",
+    "TITLE": "Our",
+    "SUBTITLE": "Services",
+    "INTRO": "Integrated solutions for workshop services, rental and fleet management: choose the service that best fits your business.",
+    "MECHANICAL": {
+      "CATEGORY": "Workshop",
+      "TITLE": "Mechanical Workshop",
+      "DESC": "Complete mechanical services for cars, vans and industrial vehicles.",
+      "MORE": "Details"
+    },
+    "BODYWORK": {
+      "CATEGORY": "Bodywork",
+      "TITLE": "Bodywork Workshop",
+      "DESC": "Professional bodywork restoration and painting services.",
+      "MORE": "Details"
+    },
+    "CONSTRUCTION": {
+      "CATEGORY": "Equipment",
+      "TITLE": "Construction",
+      "DESC": "Operational and technical support for construction activities.",
+      "MORE": "Details"
+    },
+    "MOTO": {
+      "CATEGORY": "Rental",
+      "TITLE": "Motorbike - Caravan",
+      "DESC": "Dedicated services for motorbikes and caravans.",
+      "MORE": "Details"
+    },
+    "SALES": {
+      "CATEGORY": "Trade",
+      "TITLE": "Vans, Cars and Industrial Vehicles Sales",
+      "DESC": "Sales solutions for private customers and companies.",
+      "MORE": "Details"
+    },
+    "DEMOLITION": {
+      "CATEGORY": "Industry",
+      "TITLE": "Industrial Demolition",
+      "DESC": "Safe and compliant industrial demolition services.",
+      "MORE": "Details"
+    },
+    "RECOVERY": {
+      "CATEGORY": "Sustainability",
+      "TITLE": "Ferrous Material Recovery and Disposal",
+      "DESC": "Collection, recovery and handling of ferrous material.",
+      "MORE": "Details"
+    },
+    "REVISIONS": {
+      "CATEGORY": "Compliance",
+      "TITLE": "Inspections and Testing",
+      "DESC": "Technical inspections and tests to keep vehicles compliant.",
+      "MORE": "Details"
+    },
+    "PLATES": {
+      "CATEGORY": "Documentation",
+      "TITLE": "Yellow Plates - Periodic Checks - ATP",
+      "DESC": "Procedure management and dedicated checks.",
+      "MORE": "Details"
+    },
+    "TIRES": {
+      "CATEGORY": "Spare parts",
+      "TITLE": "Tires, Vehicle Fittings and Spare Parts",
+      "DESC": "Tire sales/replacement, fittings and spare parts.",
+      "MORE": "Details"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "SUBTITLE": "BOCCONI SRL",
+    "INFO": "Information",
+    "INFO_DESC": "We are available for support, quotes and information about our services.",
+    "NAME": "Name",
+    "NAME_PLACEHOLDER": "Your name",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Your email",
+    "MESSAGE": "Message",
+    "MESSAGE_PLACEHOLDER": "Write your request here",
+    "SEND": "Send Message",
+    "SENDING": "Sending...",
+    "SUCCESS": "Message sent successfully!",
+    "ERROR": "Error while sending. Please try again later."
+  },
+  "HOME": {
+    "HERO": {
+      "KICKER": "Professional Workshop & Rental",
+      "TITLE": "Experience and services",
+      "SUBTITLE": "for your vehicle",
+      "DESC": "BOCCONI SRL operates in Massafra with a vehicle showroom and specialized workshop, offering complete solutions for private customers and companies.",
+      "CTA_SERVICES": "Explore Services",
+      "CTA_CONTACT": "Request Information",
+      "HIGHLIGHTS": {
+        "FAST": {
+          "TITLE": "Fast interventions",
+          "DESC": "Diagnostics and repairs for commercial and industrial vehicles"
+        },
+        "FLEET": {
+          "TITLE": "Rental fleet",
+          "DESC": "Vehicles and equipment available with flexible plans"
+        },
+        "SUPPORT": {
+          "TITLE": "Dedicated support",
+          "DESC": "Technical consulting and scheduled assistance"
+        }
+      },
+      "METRICS": {
+        "SUPPORT": "Operational support",
+        "SERVICES": "Specialized services",
+        "CUSTOMER": "Customer focus"
+      }
+    },
+    "FEATURES": {
+      "FAST": {
+        "TAG": "Workshop",
+        "TITLE": "Two locations",
+        "DESC": "Vehicle showroom in Contrada Sandergio snc and workshop in Via Chiatona 26, Massafra."
+      },
+      "CUTTING": {
+        "TAG": "Rental",
+        "TITLE": "Complete services",
+        "DESC": "From mechanics and bodywork to inspections, spare parts and fittings."
+      },
+      "SECURE": {
+        "TAG": "Reliability",
+        "TITLE": "Professional reliability",
+        "DESC": "Qualified support for cars, vans, motorbikes, caravans and industrial vehicles."
+      }
+    },
+    "STATS": {
+      "PROJECTS": "Projects Completed",
+      "CLIENTS": "Happy Clients",
+      "EXPERIENCE": "Years of Experience",
+      "TEAM": "Team Experts"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "What our",
+      "SUBTITLE": "Clients Say",
+      "1": {
+        "NAME": "Marco Rossi",
+        "ROLE": "CEO, TechStart",
+        "TEXT": "An exceptional team. They turned our idea into a successful app in record time."
+      },
+      "2": {
+        "NAME": "Laura Bianchi",
+        "ROLE": "Product Manager, E-Shop Pro",
+        "TEXT": "Incredible professionalism and technical expertise. Highly recommended for complex projects."
+      },
+      "3": {
+        "NAME": "Giulia Verdi",
+        "ROLE": "Founder, GreenApp",
+        "TEXT": "They know how to listen to the client's needs and always find the best technical solution."
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "About us",
+    "P1": "BOCCONI SRL is specialized in services for the automotive and industrial sector, with a complete operational structure in Massafra.",
+    "P2": "We provide technical expertise, speed and customer focus at every stage: from vehicle sales to workshop support and specialized services.",
+    "MISSION_TITLE": "Our Mission",
+    "MISSION_DESC": "Simplifying complexity through code, bringing innovation and value to every project we realize."
+  },
+  "FOOTER": {
+    "RIGHTS": "All rights reserved.",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "Terms of Service"
+  },
+  "SERVICE_DETAIL": {
+    "BACK": "Back to Services",
+    "SOLUTION_DETAIL": "Solution Detail",
+    "OFFERING": "What we offer",
+    "INTERESTED": "Interested in this solution?",
+    "CTA_DESC": "Start your journey towards digital innovation today.",
+    "GET_QUOTE": "Request a Quote",
+    "NOT_FOUND": "Service not found",
+    "NOT_FOUND_DESC": "Sorry, the requested service is not available.",
+    "BACK_TO_LIST": "Back to list"
+  },
+  "QUOTE": {
+    "TITLE": "AI Quote",
+    "SUBTITLE": "Simulator",
+    "INPUT_TITLE": "Describe your project",
+    "INPUT_DESC": "Use natural language. The more details you provide, the more precise the AI will be.",
+    "PLACEHOLDER": "Example: I want a mobile app for gym management with user login and payments...",
+    "GENERATE": "Generate Quote",
+    "GENERATING": "Generating...",
+    "ANALYZING": "AI is analyzing requirements...",
+    "RESULT_TITLE": "AI Project Estimate",
+    "ESTIMATED_COST": "Estimated Cost",
+    "ESTIMATED_TIME": "Development Time",
+    "FEATURES_IDENTIFIED": "Identified features:",
+    "WANT_PRECISE": "Want an official quote?",
+    "NAME_PLACEHOLDER": "Your name",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "SEND_ME_PDF": "Get details via email",
+    "SENDING": "Sending...",
+    "SUCCESS": "Details sent! We will contact you soon.",
+    "ERROR": "Error while sending. Please try again later."
+  },
+  "QUOTES": {
+    "TITLE": "Management",
+    "SUBTITLE": "Client Quotes",
+    "NEW_QUOTE": "New Quote",
+    "CLIENT_NAME": "Client Name",
+    "CLIENT_NAME_PLACEHOLDER": "Enter client name",
+    "COMPANY": "Company",
+    "COMPANY_PLACEHOLDER": "Company name (optional)",
+    "EMAIL": "Client Email",
+    "PHONE": "Client Phone",
+    "ITEMS": "Quote Items",
+    "ADD_ITEM": "Add Item",
+    "ITEM_DESC": "Service description",
+    "TOTAL": "Total",
+    "SAVE": "Save Quote",
+    "DOWNLOAD_PDF": "Download PDF",
+    "HISTORY": "Quote History",
+    "NO_HISTORY": "No quotes saved.",
+    "SUCCESS_SAVE": "Quote saved successfully!"
+  },
+  "AUTH": {
+    "LOGIN_TITLE": "Welcome Back",
+    "REGISTER_TITLE": "Create Account",
+    "LOGIN_SUBTITLE": "Login to your account",
+    "REGISTER_SUBTITLE": "Join BOCCONI SRL",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "LOGIN_BTN": "Login",
+    "REGISTER_BTN": "Register",
+    "GO_TO_REGISTER": "Don't have an account? Register",
+    "GO_TO_LOGIN": "Already have an account? Login",
+    "ERROR_MATCH": "Passwords do not match",
+    "ERROR_GENERIC": "An error occurred. Please try again.",
+    "SUCCESS_REGISTER": "Account created successfully! You can now login."
+  }
+}
