@@ -37,9 +37,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .footer .footer-content {
+    padding: 0 1.5rem;
+  }
+}
+
 @media (max-width: 640px) {
   .footer .footer-content {
     flex-direction: column;
     text-align: center;
+    padding: 0 1rem;
   }
 }

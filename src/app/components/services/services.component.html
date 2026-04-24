@@ -5,117 +5,142 @@
     <p class="services-intro">{{ 'SERVICES.INTRO' | translate }}</p>
   </div>
 
-  <div class="services-grid">
-    <div class="service-card" routerLink="/services/officina-meccanica">
-      <div class="service-media">
-        <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.MECHANICAL.TITLE' | translate">
+  <div class="carousel-wrapper">
+    <button class="carousel-btn carousel-btn--prev" (click)="scrollToPrev()" aria-label="Precedente">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="services-grid">
+      <div class="service-card" routerLink="/services/officina-meccanica">
+        <div class="service-media">
+          <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.MECHANICAL.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.MECHANICAL.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🔧</span>{{ 'SERVICES.MECHANICAL.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.MECHANICAL.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.MECHANICAL.MORE' | translate }}</a>
+        </div>
       </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.MECHANICAL.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🔧</span>{{ 'SERVICES.MECHANICAL.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.MECHANICAL.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.MECHANICAL.MORE' | translate }}</a>
+      <div class="service-card" routerLink="/services/officina-carrozzeria">
+        <div class="service-media">
+          <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.BODYWORK.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.BODYWORK.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🚚</span>{{ 'SERVICES.BODYWORK.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.BODYWORK.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.BODYWORK.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/edilizia">
+        <div class="service-media">
+          <img ngSrc="assets/images/edilizia.jpeg" [alt]="'SERVICES.CONSTRUCTION.TITLE' | translate" height="818"
+               width="1312">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.CONSTRUCTION.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🏗️</span>{{ 'SERVICES.CONSTRUCTION.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.CONSTRUCTION.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.CONSTRUCTION.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/moto-caravan">
+        <div class="service-media">
+          <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.MOTO.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.MOTO.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🏍️</span>{{ 'SERVICES.MOTO.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.MOTO.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.MOTO.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/vendita-veicoli">
+        <div class="service-media">
+          <img src="assets/images/venditaIndustriali.jpeg" [alt]="'SERVICES.SALES.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.SALES.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🚛</span>{{ 'SERVICES.SALES.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.SALES.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.SALES.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/demolizioni-industriali">
+        <div class="service-media">
+          <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.DEMOLITION.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.DEMOLITION.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🏭</span>{{ 'SERVICES.DEMOLITION.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.DEMOLITION.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.DEMOLITION.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/recupero-smaltimento-ferroso">
+        <div class="service-media">
+          <img src="assets/images/recuperoMateriali.png" [alt]="'SERVICES.RECOVERY.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.RECOVERY.CATEGORY' | translate }}</span>
+          <h3><span class="icon">♻️</span>{{ 'SERVICES.RECOVERY.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.RECOVERY.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.RECOVERY.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/revisioni-collaudi">
+        <div class="service-media">
+          <img src="assets/images/revisione.png" [alt]="'SERVICES.REVISIONS.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.REVISIONS.CATEGORY' | translate }}</span>
+          <h3><span class="icon">✅</span>{{ 'SERVICES.REVISIONS.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.REVISIONS.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.REVISIONS.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/targhe-gialle-atp">
+        <div class="service-media">
+          <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.PLATES.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.PLATES.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🟨</span>{{ 'SERVICES.PLATES.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.PLATES.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.PLATES.MORE' | translate }}</a>
+        </div>
+      </div>
+      <div class="service-card" routerLink="/services/pneumatici-allestimenti-ricambi">
+        <div class="service-media">
+          <img src="assets/images/pneumatici.png" [alt]="'SERVICES.TIRES.TITLE' | translate">
+        </div>
+        <div class="service-content">
+          <span class="service-category">{{ 'SERVICES.TIRES.CATEGORY' | translate }}</span>
+          <h3><span class="icon">🛞</span>{{ 'SERVICES.TIRES.TITLE' | translate }}</h3>
+          <p>{{ 'SERVICES.TIRES.DESC' | translate }}</p>
+          <a class="more-link">{{ 'SERVICES.TIRES.MORE' | translate }}</a>
+        </div>
       </div>
     </div>
-    <div class="service-card" routerLink="/services/officina-carrozzeria">
-      <div class="service-media">
-        <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.BODYWORK.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.BODYWORK.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🚚</span>{{ 'SERVICES.BODYWORK.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.BODYWORK.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.BODYWORK.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/edilizia">
-      <div class="service-media">
-        <img ngSrc="assets/images/edilizia.jpeg" [alt]="'SERVICES.CONSTRUCTION.TITLE' | translate" height="818"
-             width="1312">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.CONSTRUCTION.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🏗️</span>{{ 'SERVICES.CONSTRUCTION.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.CONSTRUCTION.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.CONSTRUCTION.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/moto-caravan">
-      <div class="service-media">
-        <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.MOTO.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.MOTO.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🏍️</span>{{ 'SERVICES.MOTO.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.MOTO.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.MOTO.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/vendita-veicoli">
-      <div class="service-media">
-        <img src="assets/images/venditaIndustriali.jpeg" [alt]="'SERVICES.SALES.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.SALES.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🚛</span>{{ 'SERVICES.SALES.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.SALES.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.SALES.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/demolizioni-industriali">
-      <div class="service-media">
-        <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.DEMOLITION.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.DEMOLITION.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🏭</span>{{ 'SERVICES.DEMOLITION.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.DEMOLITION.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.DEMOLITION.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/recupero-smaltimento-ferroso">
-      <div class="service-media">
-        <img src="assets/images/recuperoMateriali.png" [alt]="'SERVICES.RECOVERY.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.RECOVERY.CATEGORY' | translate }}</span>
-        <h3><span class="icon">♻️</span>{{ 'SERVICES.RECOVERY.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.RECOVERY.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.RECOVERY.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/revisioni-collaudi">
-      <div class="service-media">
-        <img src="assets/images/revisione.png" [alt]="'SERVICES.REVISIONS.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.REVISIONS.CATEGORY' | translate }}</span>
-        <h3><span class="icon">✅</span>{{ 'SERVICES.REVISIONS.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.REVISIONS.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.REVISIONS.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/targhe-gialle-atp">
-      <div class="service-media">
-        <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.PLATES.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.PLATES.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🟨</span>{{ 'SERVICES.PLATES.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.PLATES.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.PLATES.MORE' | translate }}</a>
-      </div>
-    </div>
-    <div class="service-card" routerLink="/services/pneumatici-allestimenti-ricambi">
-      <div class="service-media">
-        <img src="assets/images/pneumatici.png" [alt]="'SERVICES.TIRES.TITLE' | translate">
-      </div>
-      <div class="service-content">
-        <span class="service-category">{{ 'SERVICES.TIRES.CATEGORY' | translate }}</span>
-        <h3><span class="icon">🛞</span>{{ 'SERVICES.TIRES.TITLE' | translate }}</h3>
-        <p>{{ 'SERVICES.TIRES.DESC' | translate }}</p>
-        <a class="more-link">{{ 'SERVICES.TIRES.MORE' | translate }}</a>
-      </div>
-    </div>
+
+    <button class="carousel-btn carousel-btn--next" (click)="scrollToNext()" aria-label="Successivo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="carousel-dots">
+    @for (dot of dotsArray; track dot) {
+      <button
+        class="dot"
+        [class.active]="dot === currentIndex"
+        (click)="scrollToCard(dot)"
+        [attr.aria-label]="'Card ' + (dot + 1)">
+      </button>
+    }
   </div>
 </section>

@@ -263,6 +263,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .features {
+    padding: 5rem 1.5rem;
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 480px;
+    }
+  }
+}
+
 @media (max-width: 680px) {
   .hero {
     .hero-container {
@@ -271,6 +283,8 @@
 
     .hero-content .cta {
       width: 100%;
+      flex-direction: column;
+      align-items: stretch;
 
       .btn {
         width: 100%;
