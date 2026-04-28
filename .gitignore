@@ -34,3 +34,4 @@ yarn-error.log*
 # Compiled CSS and source maps from SCSS
 src/**/*.css
 src/**/*.css.map
+/.idea/watcherTasks.xml
