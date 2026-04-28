@@ -76,14 +76,14 @@
           }
         }
 
-        &.active {
+        /*&.active {
           background: none;
           color: var(--accent);
           box-shadow: none;
           &::after {
             width: 100%;
           }
-        }
+        }*/
       }
 
       .user-menu-container {
@@ -197,7 +197,7 @@
 
       .user-menu-container {
         margin-left: 0;
-        width: 100%;
+        //width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

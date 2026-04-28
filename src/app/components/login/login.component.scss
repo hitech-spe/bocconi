@@ -35,7 +35,7 @@
       label {
         display: block;
         margin-bottom: 0.5rem;
-        color: rgba(255, 255, 255, 0.9);
+        color: var(--accent);
         font-weight: 500;
       }
 
@@ -43,9 +43,8 @@
         width: 100%;
         padding: 0.8rem 1rem;
         background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid black;
         border-radius: 8px;
-        color: white;
         transition: all 0.3s ease;
 
         &:focus {
@@ -106,7 +105,7 @@
     height: 20px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    border-top-color: #fff;
+    border-top-color: var(--accent);;
     animation: spin 0.8s linear infinite;
   }
 

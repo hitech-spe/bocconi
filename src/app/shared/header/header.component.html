@@ -1,53 +1,58 @@
 <header class="header">
-  <div class="logo">
-    <a routerLink="/home">
-      <img ngSrc="../../../assets/images/logoBocconi.jpeg" alt="BOCCONI SRL" height="200" width="200" priority>
-    </a>
-  </div>
+    <div class="logo">
+        <a routerLink="/home">
+            <img ngSrc="../../../assets/images/logoBocconi.jpeg" alt="BOCCONI SRL" width="1600" height="489" priority>
+        </a>
+    </div>
 
-  <button class="mobile-menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+    <button class="mobile-menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-  <nav class="nav" [class.open]="isMenuOpen">
-    <ul>
-      <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.HOME' | translate }}</a></li>
-      <li><a [routerLink]="['/home']" fragment="about" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.ABOUT' | translate }}</a></li>
-      <li><a [routerLink]="['/home']" fragment="services" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.SERVICES' | translate }}</a></li>
-      <li><a [routerLink]="['/home']" fragment="contact" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a></li>
+    <nav class="nav" [class.open]="isMenuOpen">
+        <ul>
+            <li><a [routerLink]="['/home']" fragment="home" routerLinkActive="active"
+                   (click)="closeMenu()">{{ 'HEADER.HOME' | translate }}</a></li>
+            <li><a [routerLink]="['/home']" fragment="about" routerLinkActive="active"
+                   (click)="closeMenu()">{{ 'HEADER.ABOUT' | translate }}</a></li>
+            <li><a [routerLink]="['/home']" fragment="services" routerLinkActive="active"
+                   (click)="closeMenu()">{{ 'HEADER.SERVICES' | translate }}</a></li>
+            <li><a [routerLink]="['/home']" fragment="contact" routerLinkActive="active"
+                   (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a></li>
+            <li><a [routerLink]="['/annunci']" routerLinkActive="active"
+                   (click)="closeMenu()">{{ 'HEADER.ANNOUNCEMENTS' | translate }}</a></li>
 
-      @if (userData$ | async; as user) {
-        <li><a routerLink="/quotes" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.QUOTES' | translate }}</a></li>
-        <li class="user-menu-container">
-          <div class="user-avatar" (click)="toggleUserMenu($event)">
-            {{ getInitials(user) }}
-          </div>
+            @if (user$ | async; ) {
+                <li class="user-menu-container">
+                    <div class="user-avatar" (click)="toggleUserMenu($event)">
+                        BC
+                    </div>
 
-          @if (isUserMenuOpen) {
-            <div class="user-dropdown glass-card fade-in">
-              <div class="user-details">
-                <p class="full-name">{{ user.firstName }} {{ user.lastName }}</p>
-                <p class="user-email">{{ user.email }}</p>
-              </div>
-              <div class="dropdown-divider"></div>
-              <button (click)="logout()" class="dropdown-item logout">
-                <i class="icon-logout"></i> {{ 'AUTH.LOGOUT' | translate }}
-              </button>
-            </div>
-          }
-        </li>
-      }
-      <!--} @else {
-        <li><a routerLink="/login" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.LOGIN' | translate }}</a></li>
-      }-->
+                    @if (isUserMenuOpen) {
+                        <div class="user-dropdown glass-card fade-in">
+                            <div class="user-details">
+                                <p class="full-name">BOCCONI Srl</p>
+                                <!--p class="user-email">{{ user.email }}</p-->
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <button (click)="logout()" class="dropdown-item logout">
+                                <i class="icon-logout"></i> {{ 'AUTH.LOGOUT' | translate }}
+                            </button>
+                        </div>
+                    }
+                </li>
+            }
+            <!--} @else {
+              <li><a routerLink="/login" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.LOGIN' | translate }}</a></li>
+            }-->
 
-      <li class="lang-selector">
-        <button (click)="changeLang('it')" [class.active]="currentLang === 'it'">IT</button>
-        <span>|</span>
-        <button (click)="changeLang('en')" [class.active]="currentLang === 'en'">EN</button>
-      </li>
-    </ul>
-  </nav>
+            <li class="lang-selector">
+                <button (click)="changeLang('it')" [class.active]="currentLang === 'it'">IT</button>
+                <span>|</span>
+                <button (click)="changeLang('en')" [class.active]="currentLang === 'en'">EN</button>
+            </li>
+        </ul>
+    </nav>
 </header>

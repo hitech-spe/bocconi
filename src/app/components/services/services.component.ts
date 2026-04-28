@@ -32,32 +32,34 @@ export class ServicesComponent implements AfterViewInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    const cards = this.el.nativeElement.querySelectorAll('.service-card') as NodeListOf<HTMLElement>;
-    this.grid = this.el.nativeElement.querySelector('.services-grid') as HTMLElement;
-    this.dotsArray = Array.from({ length: cards.length }, (_, i) => i);
+    setTimeout(() => {
+      const cards = this.el.nativeElement.querySelectorAll('.service-card') as NodeListOf<HTMLElement>;
+      this.grid = this.el.nativeElement.querySelector('.services-grid') as HTMLElement;
+      this.dotsArray = Array.from({ length: cards.length }, (_, i) => i);
 
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const card = entry.target as HTMLElement;
-            const index = Number(card.dataset['index'] ?? 0);
-            card.style.setProperty('--stagger-delay', `${index * 80}ms`);
-            card.classList.add('is-visible');
-            this.observer?.unobserve(card);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px 0px 0px' }
-    );
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const card = entry.target as HTMLElement;
+              const index = Number(card.dataset['index'] ?? 0);
+              card.style.setProperty('--stagger-delay', `${index * 80}ms`);
+              card.classList.add('is-visible');
+              this.observer?.unobserve(card);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px 0px 0px' }
+      );
 
-    cards.forEach((card, i) => {
-      card.dataset['index'] = String(i);
-      this.observer?.observe(card);
-    });
+      cards.forEach((card, i) => {
+        card.dataset['index'] = String(i);
+        this.observer?.observe(card);
+      });
 
-    this.grid.addEventListener('scroll', this.onManualScrollBound, { passive: true });
-    this.startAutoScroll();
+      this.grid.addEventListener('scroll', this.onManualScrollBound, { passive: true });
+      this.startAutoScroll();
+    }, 0);
   }
 
   private startAutoScroll(): void {

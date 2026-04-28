@@ -1,0 +1,153 @@
+<section class="announcements-section">
+    <div class="announcements-container">
+        <div class="announcements-header">
+            <div>
+                <h2>Annunci</h2>
+                <p>Scopri gli ultimi aggiornamenti, offerte e novità pubblicate.</p>
+            </div>
+            @if (user$ | async; ) {
+                <button class="btn btn-primary" type="button" (click)="openModal()">
+                    Nuovo annuncio
+                </button>
+            }
+        </div>
+
+        @if (announcements$ | async; as announcements) {
+            @if (announcements.length > 0) {
+                <div class="announcements-list">
+                    @for (announcement of announcements; track announcement.id) {
+                        <article class="announcement-card">
+                            <div class="card-actions">
+                                @if (user$ | async; ) {
+                                    <button type="button"
+                                            class="icon-btn edit"
+                                            aria-label="Modifica annuncio"
+                                            (click)="openEditModal(announcement)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             stroke-width="1.8" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M16.862 3.487a2.125 2.125 0 013.005 3.005L8.25 18.11l-4.5 1.125 1.125-4.5L16.862 3.487z"/>
+                                        </svg>
+                                    </button>
+                                    <button type="button"
+                                            class="icon-btn delete"
+                                            aria-label="Elimina annuncio"
+                                            (click)="onDelete(announcement)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             stroke-width="1.8" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M6 7.5h12m-9.75 0V6a1.5 1.5 0 011.5-1.5h4.5a1.5 1.5 0 011.5 1.5v1.5m-8.25 0h8.25m-7.5 3v7.5m3-7.5v7.5m3-7.5v7.5M5.25 7.5h13.5l-.76 11.38a1.5 1.5 0 01-1.5 1.4H7.01a1.5 1.5 0 01-1.5-1.4L5.25 7.5z"/>
+                                        </svg>
+                                    </button>
+                                }
+                            </div>
+
+                            <img [src]="announcement.imageUrl" [alt]="announcement.name" class="announcement-image">
+
+                            <div class="announcement-content">
+                                <div class="announcement-top-row">
+                                    <h3>{{ announcement.name }}</h3>
+                                    @if (announcement.price !== null && announcement.price !== undefined) {
+                                        <span class="price">€ {{ announcement.price }}</span>
+                                    }
+                                </div>
+
+                                <p class="description">{{ announcement.description }}</p>
+
+                                <div class="announcement-meta">
+                                    <span>{{ formatDate(announcement.createdAt) }}</span>
+                                    @if (announcement.link) {
+                                        <a [href]="announcement.link"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           class="btn btn-outline">
+                                            Apri link
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </article>
+                    }
+                </div>
+            } @else {
+                <div class="empty-state">
+                    <h3>Nessun annuncio disponibile</h3>
+                </div>
+            }
+        }
+    </div>
+
+    @if (isModalOpen) {
+        <div class="modal-overlay" (click)="closeModal()">
+            <div class="modal" (click)="$event.stopPropagation()">
+                <div class="modal-header">
+                    <h3>{{ isEditing ? 'Modifica annuncio' : 'Nuovo annuncio' }}</h3>
+                    <button class="close-btn" type="button" (click)="closeModal()">×</button>
+                </div>
+
+                <form [formGroup]="announcementForm" (ngSubmit)="onSubmit()" class="announcement-form">
+
+                    <label>
+                        Nome
+                        <input type="text" formControlName="name" placeholder="Es. Ripetizioni di matematica">
+                    </label>
+
+                    <label class="file-drop-zone"
+                           (dragover)="onDragOver($event)"
+                           (dragleave)="onDragLeave($event)"
+                           (drop)="onDrop($event)"
+                           [class.dragging]="isDragging">
+
+                        @if (previewUrl) {
+                            <img [src]="previewUrl" class="image-preview" alt="Anteprima immagine">
+                        } @else {
+                            <div class="drop-zone-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 18.75a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"/>
+                                </svg>
+                                <span>Trascina un'immagine qui o clicca per selezionarla</span>
+                            </div>
+                        }
+                        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
+                    </label>
+
+                    @if (isEditing) {
+                        <p class="edit-helper-text">Puoi lasciare l'immagine attuale o caricarne una nuova.</p>
+                    }
+
+                    <label>
+                        Link (opzionale)
+                        <input type="url" formControlName="link" placeholder="https://...">
+                    </label>
+
+                    <label>
+                        Prezzo (opzionale)
+                        <input type="number" min="0" formControlName="price" placeholder="0">
+                    </label>
+
+                    <label>
+                        Descrizione breve
+                        <textarea rows="4" formControlName="description"
+                                  placeholder="Scrivi una breve descrizione..."></textarea>
+                    </label>
+
+                    @if (announcementForm.invalid && announcementForm.touched) {
+                        <p class="form-error">
+                            Compila i campi obbligatori.
+                        </p>
+                    }
+
+                    <div class="form-actions">
+                        <button class="btn btn-outline" type="button" (click)="closeModal()">Annulla</button>
+                        <button class="btn btn-primary" type="submit"
+                                [disabled]="announcementForm.invalid || (!isEditing && !selectedFile)">
+                            {{ (isEditing ? 'Salva modifiche' : 'Pubblica annuncio') }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</section>

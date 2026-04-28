@@ -5,7 +5,8 @@
     "SERVICES": "Services",
     "QUOTE_AI": "AI Quote",
     "QUOTES": "My Quotes",
-    "CONTACT": "Contact"
+    "CONTACT": "Contact",
+    "ANNOUNCEMENTS": "Announcements"
   },
   "SERVICES": {
     "KICKER": "Service catalog",

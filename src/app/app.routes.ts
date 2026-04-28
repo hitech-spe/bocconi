@@ -6,6 +6,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { LoginComponent } from "./components/login/login.component";
 import { authGuard } from "./guards/auth.guard";
+import {AnnouncementsComponent} from "./components/announcements/announcements.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'services/:id', component: ServiceDetailComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'annunci', component: AnnouncementsComponent },
   { path: '**', redirectTo: '/home' }
 ];
