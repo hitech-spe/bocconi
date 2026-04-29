@@ -1,9 +1,13 @@
 export interface Announcement {
   id?: string;
   name: string;
-  imageUrl: string;
+  imageUrls: string[];
+  imagePublicIds: string[];
   link?: string;
-  price?: number;
+  km?: number;
+  registrationDate?: string;
+  fuel?: string;
+  transmission?: 'manuale' | 'automatico';
   description?: string;
   createdAt: string;
 }

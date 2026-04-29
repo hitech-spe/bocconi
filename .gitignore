@@ -1,4 +1,4 @@
-# Angular specific
+nvm list# Angular specific
 /dist/
 /out-tsc/
 /tmp/

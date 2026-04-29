@@ -17,8 +17,8 @@
                 <div class="announcements-list">
                     @for (announcement of announcements; track announcement.id) {
                         <article class="announcement-card">
-                            <div class="card-actions">
-                                @if (user$ | async; ) {
+                            @if (user$ | async; ) {
+                                <div class="card-actions">
                                     <button type="button"
                                             class="icon-btn edit"
                                             aria-label="Modifica annuncio"
@@ -27,6 +27,20 @@
                                              stroke-width="1.8" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                   d="M16.862 3.487a2.125 2.125 0 013.005 3.005L8.25 18.11l-4.5 1.125 1.125-4.5L16.862 3.487z"/>
+                                        </svg>
+                                    </button>
+                                    <button type="button"
+                                            class="icon-btn copy"
+                                            aria-label="Copia annuncio"
+                                            (click)="onCopy(announcement)">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             stroke-width="1.8"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round"
+                                                  stroke-linejoin="round"
+                                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414A1 1 0 0119 9.414V19a2 2 0 01-2 2z"/>
                                         </svg>
                                     </button>
                                     <button type="button"
@@ -39,16 +53,47 @@
                                                   d="M6 7.5h12m-9.75 0V6a1.5 1.5 0 011.5-1.5h4.5a1.5 1.5 0 011.5 1.5v1.5m-8.25 0h8.25m-7.5 3v7.5m3-7.5v7.5m3-7.5v7.5M5.25 7.5h13.5l-.76 11.38a1.5 1.5 0 01-1.5 1.4H7.01a1.5 1.5 0 01-1.5-1.4L5.25 7.5z"/>
                                         </svg>
                                     </button>
+                                </div>
+                            }
+                            <div class="announcement-image-container">
+                                @if (announcement.imageUrls && announcement.imageUrls.length > 0) {
+                                    <img [src]="announcement.imageUrls[currentImageIndex[announcement.id!] || 0]"
+                                         [alt]="announcement.name"
+                                         class="announcement-image">
+
+                                    @if (announcement.imageUrls.length > 1) {
+                                        <button class="carousel-control prev"
+                                                (click)="prevImage(announcement.id!, announcement.imageUrls.length)">‹
+                                        </button>
+                                        <button class="carousel-control next"
+                                                (click)="nextImage(announcement.id!, announcement.imageUrls.length)">›
+                                        </button>
+                                        <div class="carousel-indicators">
+                                            @for (img of announcement.imageUrls; track $index) {
+                                                <span [class.active]="$index === (currentImageIndex[announcement.id!] || 0)"></span>
+                                            }
+                                        </div>
+                                    }
                                 }
                             </div>
-
-                            <img [src]="announcement.imageUrl" [alt]="announcement.name" class="announcement-image">
 
                             <div class="announcement-content">
                                 <div class="announcement-top-row">
                                     <h3>{{ announcement.name }}</h3>
-                                    @if (announcement.price !== null && announcement.price !== undefined) {
-                                        <span class="price">€ {{ announcement.price }}</span>
+                                </div>
+
+                                <div class="announcement-details">
+                                    @if (announcement.km) {
+                                        <span><strong>KM:</strong> {{ announcement.km }}</span>
+                                    }
+                                    @if (announcement.registrationDate) {
+                                        <span><strong>Immatricolazione:</strong> {{ announcement.registrationDate }}</span>
+                                    }
+                                    @if (announcement.fuel) {
+                                        <span><strong>Carburante:</strong> {{ announcement.fuel }}</span>
+                                    }
+                                    @if (announcement.transmission) {
+                                        <span><strong>Cambio:</strong> {{ announcement.transmission }}</span>
                                     }
                                 </div>
 
@@ -92,39 +137,70 @@
                         <input type="text" formControlName="name" placeholder="Es. Ripetizioni di matematica">
                     </label>
 
-                    <label class="file-drop-zone"
-                           (dragover)="onDragOver($event)"
-                           (dragleave)="onDragLeave($event)"
-                           (drop)="onDrop($event)"
-                           [class.dragging]="isDragging">
+                    <div class="file-upload-container">
+                        <label class="file-drop-zone"
+                               (dragover)="onDragOver($event)"
+                               (dragleave)="onDragLeave($event)"
+                               (drop)="onDrop($event)"
+                               [class.dragging]="isDragging">
 
-                        @if (previewUrl) {
-                            <img [src]="previewUrl" class="image-preview" alt="Anteprima immagine">
-                        } @else {
                             <div class="drop-zone-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                           d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 18.75a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"/>
                                 </svg>
-                                <span>Trascina un'immagine qui o clicca per selezionarla</span>
+                                <span>Trascina fino a 3 immagini qui o clicca per selezionarle</span>
+                            </div>
+                            <input type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input"
+                                   multiple>
+                        </label>
+
+                        @if (previewUrls.length > 0) {
+                            <div class="previews-container" style="display: flex; gap: 10px; margin-top: 10px;">
+                                @for (url of previewUrls; track $index) {
+                                    <div class="preview-item">
+                                        <img [src]="url" class="image-preview" alt="Anteprima">
+                                        <button type="button" class="remove-img-btn" (click)="removeImage($index)">×
+                                        </button>
+                                    </div>
+                                }
                             </div>
                         }
-                        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
-                    </label>
+                    </div>
 
                     @if (isEditing) {
-                        <p class="edit-helper-text">Puoi lasciare l'immagine attuale o caricarne una nuova.</p>
+                        <p class="edit-helper-text">Puoi gestire le immagini caricate (massimo 3).</p>
                     }
+
+                    <div class="form-grid">
+                        <label>
+                            KM
+                            <input type="number" formControlName="km" placeholder="Es. 50000">
+                        </label>
+
+                        <label>
+                            Data Immatricolazione
+                            <input type="text" formControlName="registrationDate" placeholder="Es. 05/2020">
+                        </label>
+
+                        <label>
+                            Carburante
+                            <input type="text" formControlName="fuel" placeholder="Es. Benzina, Diesel, Elettrica">
+                        </label>
+
+                        <label>
+                            Tipologia Cambio
+                            <select formControlName="transmission">
+                                <option value="manuale">Manuale</option>
+                                <option value="automatico">Automatico</option>
+                            </select>
+                        </label>
+                    </div>
 
                     <label>
                         Link (opzionale)
                         <input type="url" formControlName="link" placeholder="https://...">
-                    </label>
-
-                    <label>
-                        Prezzo (opzionale)
-                        <input type="number" min="0" formControlName="price" placeholder="0">
                     </label>
 
                     <label>
@@ -142,7 +218,7 @@
                     <div class="form-actions">
                         <button class="btn btn-outline" type="button" (click)="closeModal()">Annulla</button>
                         <button class="btn btn-primary" type="submit"
-                                [disabled]="announcementForm.invalid || (!isEditing && !selectedFile)">
+                                [disabled]="announcementForm.invalid || (!isEditing && !selectedFiles.length)">
                             {{ (isEditing ? 'Salva modifiche' : 'Pubblica annuncio') }}
                         </button>
                     </div>

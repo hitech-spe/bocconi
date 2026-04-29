@@ -4,9 +4,10 @@ import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { routes } from './app.routes';
-import {getFirestore, provideFirestore} from "@angular/fire/firestore";
-import {getAuth, provideAuth} from "@angular/fire/auth";
-import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
+import { getFirestore, provideFirestore } from "@angular/fire/firestore";
+import { getAuth, provideAuth } from "@angular/fire/auth";
+import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
+import { getFunctions, provideFunctions } from "@angular/fire/functions"; // <-- Importa le funzioni
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,6 +37,7 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()), // <-- Aggiungi il provider per le Functions
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {

@@ -27,8 +27,9 @@ export class AnnouncementsComponent {
     isSubmitting = false;
     editingAnnouncementId: string | null = null;
 
-    selectedFile: File | null = null;
-    previewUrl: string | ArrayBuffer | null = null;
+    selectedFiles: File[] = [];
+    previewUrls: (string | ArrayBuffer)[] = [];
+    previewIdImg: (string | ArrayBuffer)[] = [];
     isDragging = false;
 
     constructor() {
@@ -36,16 +37,20 @@ export class AnnouncementsComponent {
         this.announcementForm = this.fb.group({
             name: ['', [Validators.required, Validators.maxLength(80)]],
             link: ['', [Validators.pattern(/^https?:\/\/.+/i)]],
-            price: [null, [Validators.min(0)]],
+            km: [null, [Validators.min(0)]],
+            registrationDate: [''],
+            fuel: [''],
+            transmission: ['manuale'],
             description: ['', [Validators.required, Validators.maxLength(240)]],
         });
     }
 
     openModal(): void {
         this.editingAnnouncementId = null;
-        this.announcementForm.reset();
-        this.selectedFile = null;
-        this.previewUrl = null;
+        this.announcementForm.reset({transmission: 'manuale'});
+        this.selectedFiles = [];
+        this.previewUrls = [];
+        this.previewIdImg = [];
         this.isModalOpen = true;
     }
 
@@ -58,11 +63,15 @@ export class AnnouncementsComponent {
         this.announcementForm.patchValue({
             name: announcement.name,
             link: announcement.link ?? '',
-            price: announcement.price ?? null,
+            km: announcement.km ?? null,
+            registrationDate: announcement.registrationDate ?? '',
+            fuel: announcement.fuel ?? '',
+            transmission: announcement.transmission ?? 'manuale',
             description: announcement.description ?? '',
         });
-        this.selectedFile = null;
-        this.previewUrl = announcement.imageUrl;
+        this.selectedFiles = [];
+        this.previewUrls = announcement.imageUrls ?? [];
+        this.previewIdImg = announcement.imagePublicIds ?? [];
         this.isModalOpen = true;
     }
 
@@ -70,23 +79,38 @@ export class AnnouncementsComponent {
         this.isModalOpen = false;
         this.editingAnnouncementId = null;
         this.announcementForm.reset();
-        this.selectedFile = null;
-        this.previewUrl = null;
+        this.selectedFiles = [];
+        this.previewUrls = [];
+        this.previewIdImg = [];
     }
 
-    handleFileSelect(file: File): void {
-        this.selectedFile = file;
-        const reader = new FileReader();
-        reader.onload = () => {
-            this.previewUrl = reader.result;
-        };
-        reader.readAsDataURL(file);
+    handleFileSelect(files: FileList): void {
+        const filesArray = Array.from(files).slice(0, 3 - this.selectedFiles.length);
+        
+        filesArray.forEach(file => {
+            this.selectedFiles.push(file);
+            const reader = new FileReader();
+            reader.onload = () => {
+                if (reader.result) {
+                    this.previewUrls.push(reader.result);
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    removeImage(index: number): void {
+        if (index < this.selectedFiles.length) {
+            this.selectedFiles.splice(index, 1);
+        }
+        this.previewUrls.splice(index, 1);
+        this.previewIdImg.splice(index, 1);
     }
 
     onFileSelected(event: Event): void {
         const input = event.target as HTMLInputElement;
-        if (input.files && input.files[0]) {
-            this.handleFileSelect(input.files[0]);
+        if (input.files && input.files.length > 0) {
+            this.handleFileSelect(input.files);
         }
     }
 
@@ -103,17 +127,15 @@ export class AnnouncementsComponent {
     onDrop(event: DragEvent): void {
         event.preventDefault();
         this.isDragging = false;
-        if (event.dataTransfer?.files[0]) {
-            this.handleFileSelect(event.dataTransfer.files[0]);
+        if (event.dataTransfer?.files && event.dataTransfer.files.length > 0) {
+            this.handleFileSelect(event.dataTransfer.files);
         }
     }
 
     async onSubmit(): Promise<void> {
-        if (this.announcementForm.invalid || (!this.isEditing && !this.selectedFile)) {
+        if (this.announcementForm.invalid || (this.previewUrls.length === 0)) {
             this.announcementForm.markAllAsTouched();
-            alert(this.isEditing
-                ? 'Nome e descrizione sono obbligatori.'
-                : 'Nome, descrizione e immagine sono obbligatori.');
+            alert('Nome, descrizione e almeno un\'immagine sono obbligatori.');
             return;
         }
         this.loadingService.show();
@@ -121,16 +143,33 @@ export class AnnouncementsComponent {
         this.isSubmitting = true;
 
         try {
-            const imageUrl = this.selectedFile
-                ? await this.firestoreService.uploadImage(this.selectedFile)
-                : (this.previewUrl as string);
+            
+            const finalImageUrls: string[] = [];
+            const finalPublicIds: string[] = [];
+            
+            // Separiamo le immagini esistenti da quelle nuove
+            const existingUrls = this.previewUrls.filter(p => typeof p === 'string' && p.startsWith('http')) as string[];
+            finalImageUrls.push(...existingUrls);
+
+            if (this.selectedFiles.length > 0) {
+                const uploadedUrls = await this.firestoreService.uploadImages(this.selectedFiles);
+                for (const response of uploadedUrls) {
+                    finalImageUrls.push(response.secure_url);
+                    finalPublicIds.push(response.public_id);
+                }
+            }
+
             const formValue = this.announcementForm.value;
 
             const announcementData: Omit<Announcement, 'id' | 'createdAt'> = {
                 name: formValue.name?.trim(),
-                imageUrl: imageUrl,
+                imageUrls: finalImageUrls,
+                imagePublicIds: finalPublicIds,
                 link: formValue.link?.trim() || null,
-                price: formValue.price ?? null,
+                km: formValue.km ?? null,
+                registrationDate: formValue.registrationDate || null,
+                fuel: formValue.fuel?.trim() || null,
+                transmission: formValue.transmission || 'manuale',
                 description: formValue.description?.trim(),
             };
 
@@ -149,6 +188,22 @@ export class AnnouncementsComponent {
         }
     }
 
+    onCopy(announcement: Announcement) {
+        this.announcementForm.patchValue({
+            name: announcement.name,
+            link: announcement.link ?? '',
+            km: announcement.km ?? null,
+            registrationDate: announcement.registrationDate ?? '',
+            fuel: announcement.fuel ?? '',
+            transmission: announcement.transmission ?? 'manuale',
+            description: announcement.description ?? '',
+        });
+        this.selectedFiles = [];
+        this.previewUrls = announcement.imageUrls ?? [];
+        this.previewIdImg = announcement.imagePublicIds ?? [];
+        this.isModalOpen = true;
+    }
+
     async onDelete(announcement: Announcement): Promise<void> {
         if (!announcement.id) {
             return;
@@ -160,15 +215,30 @@ export class AnnouncementsComponent {
         }
 
         try {
-            await this.firestoreService.deleteAnnuncio(announcement.id);
+            this.loadingService.show();
+            await this.firestoreService.deleteAnnuncio(announcement);
         } catch (error) {
             console.error('Errore durante l\'eliminazione:', error);
             alert('Si è verificato un errore durante l\'eliminazione.');
+        } finally {
+            this.loadingService.hide();
         }
     }
 
     get isEditing(): boolean {
         return !!this.editingAnnouncementId;
+    }
+
+    currentImageIndex: { [key: string]: number } = {};
+
+    prevImage(announcementId: string, total: number): void {
+        const current = this.currentImageIndex[announcementId] || 0;
+        this.currentImageIndex[announcementId] = (current - 1 + total) % total;
+    }
+
+    nextImage(announcementId: string, total: number): void {
+        const current = this.currentImageIndex[announcementId] || 0;
+        this.currentImageIndex[announcementId] = (current + 1) % total;
     }
 
     formatDate(value: any): string {

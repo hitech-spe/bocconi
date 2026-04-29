@@ -31,6 +31,46 @@
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
 }
 
+@media (min-width: 1024px) {
+  .announcements-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .announcement-card {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+
+    .announcement-image-container {
+      width: 350px;
+      height: 100%;
+      flex-shrink: 0;
+
+      .announcement-image {
+        border-bottom: none;
+        border-right: 1px solid var(--border-color);
+      }
+    }
+
+    .announcement-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      justify-content: space-between;
+    }
+
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 .announcement-card {
   position: relative;
   background: var(--bg-white);
@@ -92,13 +132,93 @@
     color: #dc2626;
     border-color: rgba(220, 38, 38, 0.3);
   }
+
+  &.copy:hover {
+    color: #dcaf26;
+    border-color: rgba(220, 38, 38, 0.3);
+  }
 }
 
-.announcement-image {
+.announcement-image-container {
+  position: relative;
   width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-bottom: 1px solid var(--border-color);
+  height: 200px;
+  background: #f8fafc;
+  overflow: hidden;
+
+  .announcement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    z-index: 2;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #fff;
+    }
+
+    &.prev { left: 8px; }
+    &.next { right: 8px; }
+  }
+
+  .carousel-indicators {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    z-index: 2;
+
+    span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      
+      &.active {
+        background: #fff;
+        width: 12px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.announcement-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+
+  span {
+    display: flex;
+    gap: 0.25rem;
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+  }
 }
 
 .announcement-content {
@@ -208,10 +328,73 @@
   cursor: pointer;
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.previews-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+
+  .preview-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    .remove-img-btn {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #dc2626;
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+  }
+}
+
 .announcement-form {
   display: grid;
   gap: 0.95rem;
   padding: 1.2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  select {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    color: var(--text-main);
+    background: #fff;
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+    }
+  }
 
   label {
     display: grid;
