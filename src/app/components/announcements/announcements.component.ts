@@ -33,6 +33,7 @@ export class AnnouncementsComponent {
     isDragging = false;
 
     constructor() {
+        this.loadingService.show();
         this.announcements$ = this.firestoreService.getAnnunci();
         this.announcementForm = this.fb.group({
             name: ['', [Validators.required, Validators.maxLength(80)]],
@@ -43,6 +44,7 @@ export class AnnouncementsComponent {
             transmission: ['manuale'],
             description: ['', [Validators.required, Validators.maxLength(240)]],
         });
+        this.loadingService.hide()
     }
 
     openModal(): void {

@@ -1,8 +1,75 @@
-.service-detail {
-  // hero goes edge-to-edge; body content is constrained
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.6); // Sfondo blu scuro semitrasparente
+  backdrop-filter: blur(8px); // Effetto vetro sullo sfondo
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-y: auto; // Permette di scrollare se lo schermo è piccolo
+
+  // Rimuove lo scroll dal body della pagina principale quando la modale è aperta
+  body {
+    overflow: hidden;
+  }
 }
 
-// ── Hero ──────────────────────────────────────────────────────────────────────
+.modal-dialog {
+  background: var(--bg-white, #ffffff);
+  width: 100%;
+  max-width: 1060px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+
+  // Animazione di ingresso morbida dal basso
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// ── Modifiche ai tuoi stili esistenti ─────────────────────────────────────────
+
+// Aggiorna la tua classe .back-link per farla sembrare un pulsante di chiusura
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9); /* Bianco leggermente ammorbidito */
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.15); /* Sfondo semitrasparente */
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  backdrop-filter: blur(8px); /* Effetto sfocato dietro il bottone */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: 50; /* Assicura che stia sempre sopra a tutto (gradienti, testi, forme) */
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    transform: translateY(-2px); /* Effetto sollevamento al passaggio del mouse */
+  }
+}
 
 .detail-hero {
   position: relative;
@@ -244,7 +311,9 @@
       width: 76px;
       height: 76px;
 
-      .hero-icon { font-size: 2.4rem; }
+      .hero-icon {
+        font-size: 2.4rem;
+      }
     }
   }
 

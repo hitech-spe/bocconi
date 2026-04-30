@@ -1,129 +1,131 @@
 <section class="services fade-in">
     <div class="services-header">
         <span class="services-kicker">{{ 'SERVICES.KICKER' | translate }}</span>
-        <h2 class="section-title">{{ 'SERVICES.TITLE' | translate }} <span class="text-gradient">{{ 'SERVICES.SUBTITLE' | translate }}</span></h2>
+        <h2 class="section-title">{{ 'SERVICES.TITLE' | translate }} <span
+                class="text-gradient">{{ 'SERVICES.SUBTITLE' | translate }}</span></h2>
         <p class="services-intro">{{ 'SERVICES.INTRO' | translate }}</p>
     </div>
 
     <div class="services-grid">
-        <div class="service-card" routerLink="/services/officina-meccanica">
+        <div class="service-card" [routerLink]="['/home/services/officina-meccanica']" fragment="services">
             <div class="service-media">
-                <img ngSrc="assets/images/bocconi.jpeg" [alt]="'SERVICES.MECHANICAL.TITLE' | translate" height="818" width="1312">
+                <img ngSrc="assets/images/officinaMeccanica.jpeg" [alt]="'SERVICES.MECHANICAL.TITLE' | translate"
+                     height="1066" width="1600">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.MECHANICAL.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🔧</span>{{ 'SERVICES.MECHANICAL.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.MECHANICAL.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.MECHANICAL.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/officina-carrozzeria">
+        <div class="service-card" [routerLink]="['/home/services/officina-carrozzeria']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.BODYWORK.TITLE' | translate">
+                <img ngSrc="assets/images/officinaCarrozzeria.jpeg" [alt]="'SERVICES.BODYWORK.TITLE' | translate"
+                     height="980" width="1068">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.BODYWORK.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🚚</span>{{ 'SERVICES.BODYWORK.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.BODYWORK.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.BODYWORK.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/edilizia">
+        <div class="service-card" [routerLink]="['/home/services/edilizia']" fragment="services">
             <div class="service-media">
-                <img ngSrc="assets/images/edilizia.jpeg" [alt]="'SERVICES.CONSTRUCTION.TITLE' | translate" height="818" width="1312">
+                <img ngSrc="assets/images/edilizia.jpeg" [alt]="'SERVICES.CONSTRUCTION.TITLE' | translate" height="747"
+                     width="1600">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.CONSTRUCTION.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🏗️</span>{{ 'SERVICES.CONSTRUCTION.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.CONSTRUCTION.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.CONSTRUCTION.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/moto-caravan">
+        <div class="service-card" [routerLink]="['/home/services/moto-caravan']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.MOTO.TITLE' | translate">
+                <img ngSrc="assets/images/assistenza.jpeg" [alt]="'SERVICES.MOTO.TITLE' | translate" height="1066"
+                     width="1600">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.MOTO.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🏍️</span>{{ 'SERVICES.MOTO.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.MOTO.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.MOTO.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/vendita-veicoli">
+        <div class="service-card" [routerLink]="['/home/services/vendita-veicoli']" fragment="services">
             <div class="service-media">
-                <img ngSrc="assets/images/venditaIndustriali.jpeg" [alt]="'SERVICES.SALES.TITLE' | translate" height="1066" width="1600">
+                <img ngSrc="assets/images/venditaIndustriali.jpeg" [alt]="'SERVICES.SALES.TITLE' | translate"
+                     height="1066" width="1600">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.SALES.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🚛</span>{{ 'SERVICES.SALES.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.SALES.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.SALES.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/demolizioni-industriali">
+        <div class="service-card" [routerLink]="['/home/services/demolizioni-industriali']" fragment="services">
             <div class="service-media">
-                <img ngSrc="assets/images/bocconi.jpeg" [alt]="'SERVICES.DEMOLITION.TITLE' | translate" height="818" width="1312">
+                <img ngSrc="assets/images/demolizioni.jpeg" [alt]="'SERVICES.DEMOLITION.TITLE' | translate" height="768"
+                     width="1024">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.DEMOLITION.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🏭</span>{{ 'SERVICES.DEMOLITION.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.DEMOLITION.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.DEMOLITION.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/recupero-smaltimento-ferroso">
+        <div class="service-card" [routerLink]="['/home/services/recupero-smaltimento-ferroso']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/recuperoMateriali.png" [alt]="'SERVICES.RECOVERY.TITLE' | translate">
+                <img ngSrc="assets/images/recuperoSmaltimento.jpeg" [alt]="'SERVICES.RECOVERY.TITLE' | translate"
+                     height="768" width="1024">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.RECOVERY.CATEGORY' | translate }}</span>
-                <h3><span class="icon">♻️</span>{{ 'SERVICES.RECOVERY.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.RECOVERY.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.RECOVERY.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/revisioni-collaudi">
+        <div class="service-card" [routerLink]="['/home/services/revisioni-collaudi']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/revisione.png" [alt]="'SERVICES.REVISIONS.TITLE' | translate">
+                <img ngSrc="assets/images/revisione.jpeg" [alt]="'SERVICES.REVISIONS.TITLE' | translate" height="1600"
+                     width="1066">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.REVISIONS.CATEGORY' | translate }}</span>
-                <h3><span class="icon">✅</span>{{ 'SERVICES.REVISIONS.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.REVISIONS.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.REVISIONS.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/targhe-gialle-atp">
+        <div class="service-card" [routerLink]="['/home/services/targhe-gialle-atp']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/bocconi.jpeg" [alt]="'SERVICES.PLATES.TITLE' | translate">
+                <img ngSrc="assets/images/targheGialle.jpeg" [alt]="'SERVICES.PLATES.TITLE' | translate" height="1600"
+                     width="1066">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.PLATES.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🟨</span>{{ 'SERVICES.PLATES.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.PLATES.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.PLATES.MORE' | translate }}</a>
             </div>
         </div>
 
-        <div class="service-card" routerLink="/services/pneumatici-allestimenti-ricambi">
+        <div class="service-card" [routerLink]="['/home/services/pneumatici-allestimenti-ricambi']" fragment="services">
             <div class="service-media">
-                <img src="assets/images/pneumatici.png" [alt]="'SERVICES.TIRES.TITLE' | translate">
+                <img ngSrc="assets/images/allestimentoVeicoli.jpeg" [alt]="'SERVICES.TIRES.TITLE' | translate"
+                     height="1600" width="1066">
             </div>
             <div class="service-content">
                 <span class="service-category">{{ 'SERVICES.TIRES.CATEGORY' | translate }}</span>
-                <h3><span class="icon">🛞</span>{{ 'SERVICES.TIRES.TITLE' | translate }}</h3>
                 <p>{{ 'SERVICES.TIRES.DESC' | translate }}</p>
                 <a class="more-link">{{ 'SERVICES.TIRES.MORE' | translate }}</a>
             </div>
         </div>
     </div>
 </section>
+<router-outlet></router-outlet>

@@ -1,6 +1,6 @@
 import { Component, HostListener, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {NgOptimizedImage} from "@angular/common";
 
 @Component({
@@ -10,7 +10,8 @@ import {NgOptimizedImage} from "@angular/common";
     imports: [
         TranslateModule,
         RouterLink,
-        NgOptimizedImage
+        NgOptimizedImage,
+        RouterOutlet
     ],
   standalone: true
 })

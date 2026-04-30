@@ -1,3 +1,36 @@
+
+.services-header {
+  max-width: 900px;
+  margin: 0 auto 5rem;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.services-kicker {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.services-intro {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .services-grid {
   /* Torniamo a usare CSS Grid, impostando 2 colonne di uguale larghezza */
   display: grid;
@@ -79,7 +112,9 @@
         margin-bottom: 0.8rem;
         line-height: 1.2;
 
-        .icon { margin-right: 0.6rem; }
+        .icon {
+          margin-right: 0.6rem;
+        }
       }
 
       p {
@@ -143,8 +178,10 @@
       .service-media img {
         transform: scale(1.05);
       }
+
       .more-link {
         color: #ffffff;
+
         &::after {
           transform: translateX(6px);
         }
@@ -169,3 +206,5 @@
     }
   }
 }
+
+

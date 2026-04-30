@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, inject} from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import {Location} from "@angular/common";
 
 interface Service {
   id: string;
@@ -197,10 +198,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     }
   ];
 
-  constructor(
-    private route: ActivatedRoute,
-    private translate: TranslateService
-  ) { }
+  private route = inject(ActivatedRoute);
+  private location = inject(Location);
+  private translate = inject(TranslateService);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -236,5 +236,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
       };
     }
     return service;
+  }
+
+  closeModal(): void {
+    this.location.back();
   }
 }
