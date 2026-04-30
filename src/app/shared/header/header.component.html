@@ -21,7 +21,7 @@
                    (click)="closeMenu()">{{ 'HEADER.SERVICES' | translate }}</a></li>
             <li><a [routerLink]="['/home']" fragment="contact" routerLinkActive="active"
                    (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a></li>
-            <li><a [routerLink]="['/annunci']" routerLinkActive="active"
+            <li><a [routerLink]="['/annunci']"  routerLinkActive="active"
                    (click)="closeMenu()">{{ 'HEADER.ANNOUNCEMENTS' | translate }}</a></li>
 
             @if (user$ | async; ) {
@@ -34,7 +34,6 @@
                         <div class="user-dropdown glass-card fade-in">
                             <div class="user-details">
                                 <p class="full-name">BOCCONI Srl</p>
-                                <!--p class="user-email">{{ user.email }}</p-->
                             </div>
                             <div class="dropdown-divider"></div>
                             <button (click)="logout()" class="dropdown-item logout">
@@ -44,9 +43,6 @@
                     }
                 </li>
             }
-            <!--} @else {
-              <li><a routerLink="/login" routerLinkActive="active" (click)="closeMenu()">{{ 'HEADER.LOGIN' | translate }}</a></li>
-            }-->
 
             <li class="lang-selector">
                 <button (click)="changeLang('it')" [class.active]="currentLang === 'it'">IT</button>
