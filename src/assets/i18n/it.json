@@ -84,6 +84,8 @@
     "NAME_PLACEHOLDER": "Il tuo nome e cognome",
     "EMAIL": "Email",
     "EMAIL_PLACEHOLDER": "La tua email",
+    "PHONE": "Cellulare",
+    "PHONE_PLACEHOLDER": "Inserisci il tuo numero di cellulare",
     "MESSAGE": "Messaggio",
     "MESSAGE_PLACEHOLDER": "Scrivi qui la tua richiesta",
     "SEND": "Invia Messaggio",

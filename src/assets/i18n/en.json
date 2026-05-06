@@ -83,6 +83,8 @@
     "NAME_PLACEHOLDER": "Your name and surname",
     "EMAIL": "Email",
     "EMAIL_PLACEHOLDER": "Your email",
+    "PHONE": "Phone",
+    "PHONE_PLACEHOLDER": "Insert your phone's number",
     "MESSAGE": "Message",
     "MESSAGE_PLACEHOLDER": "Write your request here",
     "SEND": "Send Message",
