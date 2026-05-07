@@ -33,9 +33,10 @@ export class ContactComponent {
     this.submitStatus = null;
 
     // Sostituisci questi valori con i tuoi di EmailJS
-    const serviceID = 'service_dvvpn9b';
-    const templateID = 'template_yepteb7';
-    const publicKey = 'BeTmkZ_BQMgszAUkE';
+    const serviceID = 'service_24172gj';
+    const templateID = 'template_p0vp3cj';
+    const publicKey = 't0O8eaI9bifF1d3r4';
+
 
     emailjs.send(serviceID, templateID, this.formData, publicKey)
       .then((result: EmailJSResponseStatus) => {
