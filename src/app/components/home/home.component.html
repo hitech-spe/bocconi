@@ -9,49 +9,58 @@
     <div class="hero-overlay"></div>
     <div class="hero-container">
         <div class="hero-content fade-in">
-        <span class="hero-kicker">{{ 'HOME.HERO.KICKER' | translate }}</span>
-        <h1>{{ 'HOME.HERO.TITLE' | translate }} <span class="text-gradient">{{ 'HOME.HERO.SUBTITLE' | translate }}</span></h1>
-        <p>{{ 'HOME.HERO.DESC' | translate }}</p>
-        <div class="cta">
-            <a [routerLink]="['/home']" fragment="services" class="btn btn-primary">{{ 'HOME.HERO.CTA_SERVICES' | translate }}</a>
-            <a [routerLink]="['/home']" fragment="contact" class="btn btn-outline">{{ 'HOME.HERO.CTA_CONTACT' | translate }}</a>
+            <span class="hero-kicker">{{ 'HOME.HERO.KICKER' | translate }}</span>
+            <h1>{{ 'HOME.HERO.TITLE' | translate }} <span
+                    class="text-gradient">{{ 'HOME.HERO.SUBTITLE' | translate }}</span></h1>
+            <p>{{ 'HOME.HERO.DESC' | translate }}</p>
+            <div class="cta">
+                <a [routerLink]="['/home']" fragment="services"
+                   class="btn btn-primary">{{ 'HOME.HERO.CTA_SERVICES' | translate }}</a>
+                <a [routerLink]="['/home']" fragment="contact"
+                   class="btn btn-outline">{{ 'HOME.HERO.CTA_CONTACT' | translate }}</a>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 
 <section class="features reveal-on-scroll">
     <div class="features-grid">
         <div class="feature-card">
-        <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                </svg>
+            </div>
+            <span class="feature-tag">{{ 'HOME.FEATURES.FAST.TAG' | translate }}</span>
+            <h3>{{ 'HOME.FEATURES.FAST.TITLE' | translate }}</h3>
+            <p>{{ 'HOME.FEATURES.FAST.DESC' | translate }}</p>
         </div>
-        <span class="feature-tag">{{ 'HOME.FEATURES.FAST.TAG' | translate }}</span>
-        <h3>{{ 'HOME.FEATURES.FAST.TITLE' | translate }}</h3>
-        <p>{{ 'HOME.FEATURES.FAST.DESC' | translate }}</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
-            </svg>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+                </svg>
+            </div>
+            <span class="feature-tag">{{ 'HOME.FEATURES.CUTTING.TAG' | translate }}</span>
+            <h3>{{ 'HOME.FEATURES.CUTTING.TITLE' | translate }}</h3>
+            <p>{{ 'HOME.FEATURES.CUTTING.DESC' | translate }}</p>
         </div>
-        <span class="feature-tag">{{ 'HOME.FEATURES.CUTTING.TAG' | translate }}</span>
-        <h3>{{ 'HOME.FEATURES.CUTTING.TITLE' | translate }}</h3>
-        <p>{{ 'HOME.FEATURES.CUTTING.DESC' | translate }}</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-            </svg>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                </svg>
+            </div>
+            <span class="feature-tag">{{ 'HOME.FEATURES.SECURE.TAG' | translate }}</span>
+            <h3>{{ 'HOME.FEATURES.SECURE.TITLE' | translate }}</h3>
+            <p>{{ 'HOME.FEATURES.SECURE.DESC' | translate }}</p>
         </div>
-        <span class="feature-tag">{{ 'HOME.FEATURES.SECURE.TAG' | translate }}</span>
-        <h3>{{ 'HOME.FEATURES.SECURE.TITLE' | translate }}</h3>
-        <p>{{ 'HOME.FEATURES.SECURE.DESC' | translate }}</p>
-    </div>
     </div>
 </section>
 
@@ -71,56 +80,15 @@
     </div>
 </section>
 
+<a href="https://wa.me/393761094228"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contattaci su WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.387 7.562-1.987c2.247 1.187 4.812 1.812 7.438 1.812 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.288 22.688c-.338.963-1.675 1.763-2.738 1.988-.725.15-1.663.275-4.812-1.037-4.025-1.675-6.612-5.75-6.812-6.012-.2-.263-1.613-2.15-1.613-4.1s1.013-2.913 1.375-3.313c.363-.4.788-.5 1.05-.5.263 0 .525 0 .75.013.238.013.538-.088.838.638.313.75 1.063 2.6 1.15 2.775.1.175.163.388.05.613-.113.238-.175.388-.35.588-.175.2-.375.45-.538.6-.175.163-.363.338-.15.7.213.363.95 1.563 2.038 2.525 1.4 1.238 2.588 1.625 2.95 1.813.363.188.575.163.788-.088.213-.25.913-1.063 1.163-1.425.25-.363.5-.3.838-.175s2.138 1.013 2.5 1.188c.363.175.6.263.688.413.088.138.088.813-.25 1.775z"
+              fill="white"/>
+    </svg>
+</a>
+
 <router-outlet></router-outlet>
-
-<!--section class="stats fade-in">
-  <div class="stat-item">
-    <span class="stat-number text-gradient">50+</span>
-    <span class="stat-label">{{ 'HOME.STATS.PROJECTS' | translate }}</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number text-gradient">30+</span>
-    <span class="stat-label">{{ 'HOME.STATS.CLIENTS' | translate }}</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number text-gradient">10+</span>
-    <span class="stat-label">{{ 'HOME.STATS.EXPERIENCE' | translate }}</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-number text-gradient">15+</span>
-    <span class="stat-label">{{ 'HOME.STATS.TEAM' | translate }}</span>
-  </div>
-</section>
-
-<section class="testimonials fade-in">
-  <h2 class="section-title text-center">
-    {{ 'HOME.TESTIMONIALS.TITLE' | translate }}
-    <span class="text-gradient">{{ 'HOME.TESTIMONIALS.SUBTITLE' | translate }}</span>
-  </h2>
-  <div class="testimonials-grid">
-    <div class="glass-card testimonial-card">
-      <div class="quote-icon">“</div>
-      <p class="testimonial-text">{{ 'HOME.TESTIMONIALS.1.TEXT' | translate }}</p>
-      <div class="testimonial-author">
-        <strong>{{ 'HOME.TESTIMONIALS.1.NAME' | translate }}</strong>
-        <span>{{ 'HOME.TESTIMONIALS.1.ROLE' | translate }}</span>
-      </div>
-    </div>
-    <div class="glass-card testimonial-card">
-      <div class="quote-icon">“</div>
-      <p class="testimonial-text">{{ 'HOME.TESTIMONIALS.2.TEXT' | translate }}</p>
-      <div class="testimonial-author">
-        <strong>{{ 'HOME.TESTIMONIALS.2.NAME' | translate }}</strong>
-        <span>{{ 'HOME.TESTIMONIALS.2.ROLE' | translate }}</span>
-      </div>
-    </div>
-    <div class="glass-card testimonial-card">
-      <div class="quote-icon">“</div>
-      <p class="testimonial-text">{{ 'HOME.TESTIMONIALS.3.TEXT' | translate }}</p>
-      <div class="testimonial-author">
-        <strong>{{ 'HOME.TESTIMONIALS.3.NAME' | translate }}</strong>
-        <span>{{ 'HOME.TESTIMONIALS.3.ROLE' | translate }}</span>
-      </div>
-    </div>
-  </div>
-</section-->
