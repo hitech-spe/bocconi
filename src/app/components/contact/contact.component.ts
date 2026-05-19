@@ -34,7 +34,7 @@ export class ContactComponent {
 
     // Sostituisci questi valori con i tuoi di EmailJS
     const serviceID = 'service_24172gj';
-    const templateID = 'template_p0vp3cj';
+    const templateID = 'template_fpndxse';
     const publicKey = 't0O8eaI9bifF1d3r4';
 
 
