@@ -30,7 +30,9 @@
             "assets": [
               "src/favicon.jpeg",
               "src/assets",
-              "src/_redirects"
+              "src/_redirects",
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/styles.scss"
@@ -93,7 +95,9 @@
             "assets": [
               "src/favicon.png",
               "src/assets",
-              "src/_redirects"
+              "src/_redirects",
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/styles.scss"
