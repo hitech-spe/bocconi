@@ -31,7 +31,8 @@
         width: auto;
 
         /* 1. LA MAGIA: Diventa bianco e l'ombra segue la sagoma del testo/camion! */
-        filter: brightness(0) invert(1) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+       // filter: brightness(0) invert(1) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
 
         /* 2. RIMOSSI border-radius e box-shadow (non servono più sul logo trasparente) */
         opacity: 0.95;
@@ -42,7 +43,8 @@
           transform: scale(1.05);
           opacity: 1;
           /* Al passaggio del mouse si illumina di azzurro tech! */
-          filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(0, 210, 255, 0.6));
+          filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6));
+          //filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(0, 210, 255, 0.6));
         }
       }
     }
