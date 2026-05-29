@@ -174,7 +174,11 @@
   "FOOTER": {
     "RIGHTS": "Tutti i diritti riservati.",
     "PRIVACY": "Privacy Policy",
-    "TERMS": "Terms of Service"
+    "TERMS": "Terms of Service",
+    "QUICK_LINKS": "Link Rapidi",
+    "OFFICE": "Sede Operativa",
+    "WORKSHOP": "Officina",
+    "LEGAL": "Note Legali"
   },
   "SERVICE_DETAIL": {
     "BACK": "Torna ai Servizi",

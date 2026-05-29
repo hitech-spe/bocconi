@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {NgOptimizedImage} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,8 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrls: ['./footer.component.scss'],
     imports: [
         TranslateModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        RouterLink
     ],
   standalone: true
 })

@@ -173,7 +173,11 @@
   "FOOTER": {
     "RIGHTS": "All rights reserved.",
     "PRIVACY": "Privacy Policy",
-    "TERMS": "Terms of Service"
+    "TERMS": "Terms of Service",
+    "QUICK_LINKS": "Quick Links",
+    "OFFICE": "Operational Headquarters",
+    "WORKSHOP": "Workshop",
+    "LEGAL": "Legal"
   },
   "SERVICE_DETAIL": {
     "BACK": "Back to Services",
