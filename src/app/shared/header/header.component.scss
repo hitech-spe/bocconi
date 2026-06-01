@@ -286,6 +286,17 @@
       }
     }
 
+    .header-center {
+      left: 50%;
+      transform: translateX(-50%);
+
+      .center-favicon {
+        height: 35px;
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
     .mobile-menu-toggle {
       display: flex;
     }
