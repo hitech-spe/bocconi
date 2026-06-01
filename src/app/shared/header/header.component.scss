@@ -50,6 +50,27 @@
     }
   }
 
+  .header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .center-favicon {
+      height: 60px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
   .nav {
     padding-right: 10%;
     transition: right 0.3s ease;
