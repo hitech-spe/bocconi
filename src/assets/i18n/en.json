@@ -16,61 +16,61 @@
     "MECHANICAL": {
       "CATEGORY": "Workshop",
       "TITLE": "Mechanical Workshop",
-      "DESC": "Complete mechanical services for cars, vans and industrial vehicles.",
-      "MORE": "Details"
+      "DESC": "Service, brakes, tires, electronic diagnostics and air conditioning. Professional maintenance to keep the manufacturer warranty.",
+      "MORE": "Request Free Quote"
     },
     "BODYWORK": {
       "CATEGORY": "Bodywork",
       "TITLE": "Bodywork Workshop",
-      "DESC": "Professional bodywork restoration and painting services.",
+      "DESC": "Post-accident repair, scratch removal, PDR technique, oven painting and professional detailing.",
       "MORE": "Details"
     },
     "CONSTRUCTION": {
-      "CATEGORY": "Equipment",
+      "CATEGORY": "Construction",
       "TITLE": "Construction",
-      "DESC": "Operational and technical support for construction activities.",
+      "DESC": "Renovations with detailed quotes, tax bonus management and fixed schedule. Certified materials.",
       "MORE": "Details"
     },
     "MOTO": {
       "CATEGORY": "Rental",
-      "TITLE": "Motorbike - Caravan",
-      "DESC": "Dedicated services for motorbikes and caravans.",
+      "TITLE": "Vehicle Rental",
+      "DESC": "City cars, SUVs, cargo and fridge vans. Short and long-term all-inclusive rental for individuals and VAT numbers.",
       "MORE": "Details"
     },
     "SALES": {
       "CATEGORY": "Trade",
-      "TITLE": "Vans, Cars and Industrial Vehicles Sales",
-      "DESC": "Sales solutions for private customers and companies.",
+      "TITLE": "Car and Van Sales",
+      "DESC": "Guaranteed used cars, Km 0, corporate and commercial vehicles. VAT exposed and savings up to 25%.",
       "MORE": "Details"
     },
     "DEMOLITION": {
       "CATEGORY": "Industry",
       "TITLE": "Industrial Demolition",
-      "DESC": "Safe and compliant industrial demolition services.",
+      "DESC": "Safe demolition of warehouses and plants throughout Italy. Disposal and material recovery included.",
       "MORE": "Details"
     },
     "RECOVERY": {
       "CATEGORY": "Sustainability",
-      "TITLE": "Ferrous Material Recovery and Disposal",
-      "DESC": "Collection, recovery and handling of ferrous material.",
+      "TITLE": "Scrap Recovery",
+      "DESC": "Metal collection and valuation (iron, copper, aluminum). Car demolition with home pick-up and ACI procedures.",
       "MORE": "Details"
     },
     "REVISIONS": {
       "CATEGORY": "Compliance",
       "TITLE": "Inspections and Testing",
-      "DESC": "Technical inspections and tests to keep vehicles compliant.",
+      "DESC": "MCTC inspections for cars, motorbikes and vans. Tow bar and import testing. Free pre-inspection.",
       "MORE": "Details"
     },
     "PLATES": {
       "CATEGORY": "Documentation",
-      "TITLE": "Yellow Plates - Periodic Checks - ATP",
+      "TITLE": "Yellow Plates - ATP",
       "DESC": "Procedure management and dedicated checks.",
       "MORE": "Details"
     },
     "TIRES": {
       "CATEGORY": "Spare parts",
-      "TITLE": "Tires, Vehicle Fittings and Spare Parts",
-      "DESC": "Tire sales/replacement, fittings and spare parts.",
+      "TITLE": "Spare Parts and Accessories",
+      "DESC": "Wide range of mechanical, bodywork and electrical parts. Service kits and accessories for every model.",
       "MORE": "Details"
     }
   },

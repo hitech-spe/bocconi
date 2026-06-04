@@ -17,61 +17,61 @@
     "MECHANICAL": {
       "CATEGORY": "Officina",
       "TITLE": "Officina Meccanica",
-      "DESC": "Interventi meccanici completi su auto, furgoni e veicoli industriali.",
-      "MORE": "Dettagli"
+      "DESC": "Tagliando, freni, gomme, diagnosi elettronica e aria condizionata. Manutenzione professionale per mantenere la garanzia del produttore.",
+      "MORE": "Richiedi Preventivo Gratis"
     },
     "BODYWORK": {
       "CATEGORY": "Carrozzeria",
       "TITLE": "Officina Carrozzeria",
-      "DESC": "Ripristino carrozzeria e verniciatura con finiture professionali.",
+      "DESC": "Riparazione post-incidente, eliminazione graffi, tecnica PDR, riverniciatura a forno e detailing professionale.",
       "MORE": "Dettagli"
     },
     "CONSTRUCTION": {
-      "CATEGORY": "Attrezzature",
+      "CATEGORY": "Edilizia",
       "TITLE": "Edilizia",
-      "DESC": "Supporto operativo e tecnico per attività in ambito edilizio.",
+      "DESC": "Ristrutturazioni con preventivi dettagliati, gestione bonus fiscali e cronoprogramma certo. Materiali certificati.",
       "MORE": "Dettagli"
     },
     "MOTO": {
       "CATEGORY": "Noleggio",
-      "TITLE": "Moto - Caravan",
-      "DESC": "Interventi e assistenza dedicata a moto e caravan.",
+      "TITLE": "Noleggio Veicoli",
+      "DESC": "City car, SUV, furgoni merci e frigo. Noleggio breve e lungo termine tutto incluso per privati e P.IVA.",
       "MORE": "Dettagli"
     },
     "SALES": {
       "CATEGORY": "Commercio",
-      "TITLE": "Vendita Furgoni, Auto e Veicoli Industriali",
-      "DESC": "Soluzioni di vendita per privati e aziende.",
+      "TITLE": "Vendita Auto e Furgoni",
+      "DESC": "Auto usate garantite, Km 0, aziendali e veicoli commerciali. IVA esposta e risparmio fino al 25%.",
       "MORE": "Dettagli"
     },
     "DEMOLITION": {
       "CATEGORY": "Industria",
       "TITLE": "Demolizioni Industriali",
-      "DESC": "Interventi di demolizione industriale in sicurezza e conformità.",
+      "DESC": "Demolizioni sicure di capannoni e impianti in tutta Italia. Smaltimento e recupero materiali inclusi.",
       "MORE": "Dettagli"
     },
     "RECOVERY": {
       "CATEGORY": "Sostenibilità",
-      "TITLE": "Recupero e Smaltimento Materiale Ferroso",
-      "DESC": "Raccolta, recupero e gestione del materiale ferroso.",
+      "TITLE": "Recupero Rottami",
+      "DESC": "Ritiro e valutazione metalli (ferro, rame, alluminio). Autodemolizione con ritiro a domicilio e pratiche ACI.",
       "MORE": "Dettagli"
     },
     "REVISIONS": {
       "CATEGORY": "Conformità",
       "TITLE": "Revisioni e Collaudi",
-      "DESC": "Controlli tecnici e collaudi per mantenere i mezzi in regola.",
+      "DESC": "Revisioni MCTC per auto, moto e furgoni. Collaudi gancio traino e importazione. Pre-revisione gratuita.",
       "MORE": "Dettagli"
     },
     "PLATES": {
       "CATEGORY": "Documentazione",
-      "TITLE": "Targhe Gialle - Verifiche Periodiche - ATP",
+      "TITLE": "Targhe Gialle - ATP",
       "DESC": "Gestione pratiche e verifiche dedicate.",
       "MORE": "Dettagli"
     },
     "TIRES": {
       "CATEGORY": "Ricambi",
-      "TITLE": "Pneumatici, Allestimento Veicoli e Ricambi",
-      "DESC": "Vendita e sostituzione pneumatici, allestimenti e ricambi.",
+      "TITLE": "Ricambi e Accessori",
+      "DESC": "Vasta gamma di ricambi meccanici, carrozzeria ed elettrici. Kit tagliando e accessori per ogni modello.",
       "MORE": "Dettagli"
     }
   },
