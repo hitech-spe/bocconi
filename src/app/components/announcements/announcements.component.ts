@@ -29,7 +29,6 @@ export class AnnouncementsComponent {
 
     selectedFiles: File[] = [];
     previewUrls: (string | ArrayBuffer)[] = [];
-    previewIdImg: (string | ArrayBuffer)[] = [];
     isDragging = false;
 
     constructor() {
@@ -52,7 +51,6 @@ export class AnnouncementsComponent {
         this.announcementForm.reset({transmission: 'manuale'});
         this.selectedFiles = [];
         this.previewUrls = [];
-        this.previewIdImg = [];
         this.isModalOpen = true;
     }
 
@@ -73,7 +71,6 @@ export class AnnouncementsComponent {
         });
         this.selectedFiles = [];
         this.previewUrls = announcement.imageUrls ?? [];
-        this.previewIdImg = announcement.imagePublicIds ?? [];
         this.isModalOpen = true;
     }
 
@@ -83,7 +80,6 @@ export class AnnouncementsComponent {
         this.announcementForm.reset();
         this.selectedFiles = [];
         this.previewUrls = [];
-        this.previewIdImg = [];
     }
 
     handleFileSelect(files: FileList): void {
@@ -106,7 +102,6 @@ export class AnnouncementsComponent {
             this.selectedFiles.splice(index, 1);
         }
         this.previewUrls.splice(index, 1);
-        this.previewIdImg.splice(index, 1);
     }
 
     onFileSelected(event: Event): void {
@@ -145,28 +140,13 @@ export class AnnouncementsComponent {
         this.isSubmitting = true;
 
         try {
-            
-            const finalImageUrls: string[] = [];
-            const finalPublicIds: string[] = [];
-            
-            // Separiamo le immagini esistenti da quelle nuove
-            const existingUrls = this.previewUrls.filter(p => typeof p === 'string' && p.startsWith('http')) as string[];
-            finalImageUrls.push(...existingUrls);
-
-            if (this.selectedFiles.length > 0) {
-                const uploadedUrls = await this.firestoreService.uploadImages(this.selectedFiles);
-                for (const response of uploadedUrls) {
-                    finalImageUrls.push(response.secure_url);
-                    finalPublicIds.push(response.public_id);
-                }
-            }
+            const finalImageUrls: string[] = this.previewUrls.map(p => p.toString());
 
             const formValue = this.announcementForm.value;
 
             const announcementData: Omit<Announcement, 'id' | 'createdAt'> = {
                 name: formValue.name?.trim(),
                 imageUrls: finalImageUrls,
-                imagePublicIds: finalPublicIds,
                 link: formValue.link?.trim() || null,
                 km: formValue.km ?? null,
                 registrationDate: formValue.registrationDate || null,
@@ -202,7 +182,6 @@ export class AnnouncementsComponent {
         });
         this.selectedFiles = [];
         this.previewUrls = announcement.imageUrls ?? [];
-        this.previewIdImg = announcement.imagePublicIds ?? [];
         this.isModalOpen = true;
     }
 
