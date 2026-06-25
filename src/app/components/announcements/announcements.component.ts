@@ -1,7 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal, computed} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule} from '@angular/forms';
+import {Observable, combineLatest, map} from 'rxjs';
+import {toObservable} from '@angular/core/rxjs-interop';
 import {FirestoreService} from '../../services/firestore.service';
 import {Announcement} from '../../models/announcement.model';
 import {AuthService} from "../../services/auth.service";
@@ -13,7 +14,7 @@ import {TranslateModule} from "@ngx-translate/core";
     templateUrl: './announcements.component.html',
     styleUrls: ['./announcements.component.scss'],
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, TranslateModule]
+    imports: [CommonModule, ReactiveFormsModule, TranslateModule, FormsModule]
 })
 export class AnnouncementsComponent {
     private authService = inject(AuthService);
@@ -23,6 +24,15 @@ export class AnnouncementsComponent {
     private loadingService = inject(LoadingService);
 
     announcements$: Observable<Announcement[]>;
+    
+    // Filtri e Ordinamento
+    searchTerm = signal('');
+    sortBy = signal<'date' | 'name' | 'km'>('date');
+    sortOrder = signal<'asc' | 'desc'>('desc');
+    activeTab = signal<'all' | 'featured'>('all');
+
+    displayAnnouncements$: Observable<Announcement[]>;
+
     announcementForm: FormGroup;
     isModalOpen = false;
     isSubmitting = false;
@@ -35,6 +45,58 @@ export class AnnouncementsComponent {
     constructor() {
         this.loadingService.show();
         this.announcements$ = this.firestoreService.getAnnunci();
+
+        this.displayAnnouncements$ = combineLatest([
+            this.announcements$,
+            toObservable(this.searchTerm),
+            toObservable(this.sortBy),
+            toObservable(this.sortOrder),
+            toObservable(this.activeTab)
+        ]).pipe(
+            map(([annunci, term, sort, order, tab]) => {
+                let filtered = [...annunci];
+
+                // Filtro per Tab (Home)
+                if (tab === 'featured') {
+                    filtered = filtered.filter(a => a.featured);
+                }
+
+                // Filtro per nome
+                if (term) {
+                    const t = term.toLowerCase();
+                    filtered = filtered.filter(a => a.name.toLowerCase().includes(t));
+                }
+
+                // Ordinamento
+                filtered.sort((a, b) => {
+                    let valA: any;
+                    let valB: any;
+
+                    switch (sort) {
+                        case 'name':
+                            valA = a.name.toLowerCase();
+                            valB = b.name.toLowerCase();
+                            break;
+                        case 'km':
+                            valA = a.km ?? 0;
+                            valB = b.km ?? 0;
+                            break;
+                        case 'date':
+                        default:
+                            valA = new Date(a.createdAt).getTime();
+                            valB = new Date(b.createdAt).getTime();
+                            break;
+                    }
+
+                    if (valA < valB) return order === 'asc' ? -1 : 1;
+                    if (valA > valB) return order === 'asc' ? 1 : -1;
+                    return 0;
+                });
+
+                return filtered;
+            })
+        );
+
         this.announcementForm = this.fb.group({
             name: ['', [Validators.required, Validators.maxLength(80)]],
             link: ['', [Validators.pattern(/^https?:\/\/.+/i)]],
@@ -205,6 +267,34 @@ export class AnnouncementsComponent {
         } finally {
             this.loadingService.hide();
         }
+    }
+
+    async onToggleFeatured(announcement: Announcement): Promise<void> {
+        if (!announcement.id) return;
+        try {
+            const newState = !announcement.featured;
+            await this.firestoreService.toggleFeatured(announcement.id, newState);
+        } catch (error) {
+            console.error('Errore durante il cambio stato evidenza:', error);
+        }
+    }
+
+    onSearch(event: Event): void {
+        const value = (event.target as HTMLInputElement).value;
+        this.searchTerm.set(value);
+    }
+
+    setSortBy(field: 'date' | 'name' | 'km'): void {
+        if (this.sortBy() === field) {
+            this.sortOrder.set(this.sortOrder() === 'asc' ? 'desc' : 'asc');
+        } else {
+            this.sortBy.set(field);
+            this.sortOrder.set(field === 'date' ? 'desc' : 'asc');
+        }
+    }
+
+    setTab(tab: 'all' | 'featured'): void {
+        this.activeTab.set(tab);
     }
 
     get isEditing(): boolean {

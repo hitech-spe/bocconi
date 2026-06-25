@@ -14,6 +14,9 @@ import {AboutComponent} from "../about/about.component";
 import {ServicesComponent} from "../services/services.component";
 import {ContactComponent} from "../contact/contact.component";
 import {CommonModule} from "@angular/common";
+import {FirestoreService} from "../../services/firestore.service";
+import {Observable, map} from "rxjs";
+import {Announcement} from "../../models/announcement.model";
 
 @Component({
     selector: 'app-home',
@@ -33,9 +36,20 @@ import {CommonModule} from "@angular/common";
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('featureVideo') videoElement?: ElementRef<HTMLVideoElement>;
     private host = inject(ElementRef<HTMLElement>);
+    private firestoreService = inject(FirestoreService);
     private observer?: IntersectionObserver;
 
     showBackToTop = false;
+    annunci$: Observable<Announcement[]> = this.firestoreService.getAnnunci().pipe(
+        map(annunci => {
+            const featured = annunci.filter(a => a.featured);
+            if (featured.length > 0) {
+                return featured.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 3);
+            } else {
+                return [];
+            }
+        })
+    );
 
     ngOnInit(): void {
     }
@@ -93,5 +107,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     scrollToTop(): void {
         window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    formatDate(date: string): string {
+        if (!date) return '';
+        const d = new Date(date);
+        return d.toLocaleDateString('it-IT', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
     }
 }

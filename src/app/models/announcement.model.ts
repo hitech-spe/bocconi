@@ -9,4 +9,5 @@ export interface Announcement {
   transmission?: 'manuale' | 'automatico';
   description?: string;
   createdAt: string;
+  featured?: boolean;
 }

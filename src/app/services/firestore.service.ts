@@ -33,11 +33,16 @@ export class FirestoreService {
         });
     }
 
-    updateAnnuncio(id: string, annuncio: Omit<Announcement, 'id' | 'createdAt'>) {
+    updateAnnuncio(id: string, annuncio: Partial<Announcement>) {
         const announcementRef = doc(this.firestore, 'annunci', id);
         return updateDoc(announcementRef, {
             ...annuncio
         });
+    }
+
+    toggleFeatured(id: string, featured: boolean) {
+        const announcementRef = doc(this.firestore, 'annunci', id);
+        return updateDoc(announcementRef, { featured });
     }
 
     async deleteAnnuncio(announcement: Announcement) {
