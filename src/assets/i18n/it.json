@@ -123,12 +123,12 @@
     },
     "FEATURES": {
       "FAST": {
-        "TAG": "Officina",
+        "TAG": "Vendita",
         "TITLE": "Due sedi operative",
-        "DESC": "Esposizione veicoli in Contrada Sandergio snc e officina in Via Chiatona 26, Massafra."
+        "DESC": "Esposizione veicoli in Contrada San Sergio snc, Strada Statale Appia e officina in Via Chiatona 26, Massafra."
       },
       "CUTTING": {
-        "TAG": "Noleggio",
+        "TAG": "Officina",
         "TITLE": "Servizi completi",
         "DESC": "Dalla meccanica alla carrozzeria, fino a revisioni, ricambi e allestimenti."
       },
