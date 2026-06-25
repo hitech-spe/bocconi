@@ -144,6 +144,16 @@
       "EXPERIENCE": "Anni di Esperienza",
       "TEAM": "Esperti nel Team"
     },
+    "ANNUNCI": {
+      "TITLE": "I Nostri",
+      "SUBTITLE": "Annunci",
+      "KICKER": "Occasioni imperdibili",
+      "DESC": "Scopri le nostre migliori offerte su auto usate, km 0 e veicoli commerciali. Qualità garantita e prezzi competitivi.",
+      "CTA": "Vedi tutti gli annunci",
+      "DETAILS": "Scopri di più",
+      "WHATSAPP": "WhatsApp",
+      "CALL": "Chiama"
+    },
     "TESTIMONIALS": {
       "TITLE": "Cosa dicono i",
       "SUBTITLE": "Nostri Clienti",
@@ -186,7 +196,9 @@
     "OFFERING": "Cosa offriamo",
     "INTERESTED": "Interessato a questa soluzione?",
     "CTA_DESC": "Inizia oggi il tuo percorso verso l'innovazione digitale.",
-    "GET_QUOTE": "Richiedi Preventivo",
+    "GET_QUOTE": "Chiedi Informazioni",
+    "WHATSAPP_MSG": "Ciao, vorrei ricevere maggiori informazioni riguardo al servizio: {{service}}",
+    "WHATSAPP_ANNUNCIO_MSG": "Ciao, vorrei ricevere maggiori informazioni riguardo all'annuncio: {{annuncio}}",
     "NOT_FOUND": "Servizio non trovato",
     "NOT_FOUND_DESC": "Spiacenti, il servizio richiesto non è disponibile.",
     "BACK_TO_LIST": "Torna alla lista"

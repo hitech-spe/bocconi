@@ -99,6 +99,24 @@
 
                                 <p class="description">{{ announcement.description }}</p>
 
+                                <div class="announcement-contact-actions">
+                                    <a [href]="'https://wa.me/393761094228?text=' + ('SERVICE_DETAIL.WHATSAPP_ANNUNCIO_MSG' | translate: { annuncio: announcement.name })"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="btn-contact whatsapp">
+                                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.387 7.562-1.987c2.247 1.187 4.812 1.812 7.438 1.812 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.288 22.688c-.338.963-1.675 1.763-2.738 1.988-.725.15-1.663.275-4.812-1.037-4.025-1.675-6.612-5.75-6.812-6.012-.2-.263-1.613-2.15-1.613-4.1s1.013-2.913 1.375-3.313c.363-.4.788-.5 1.05-.5.263 0 .525 0 .75.013.238.013.538-.088.838.638.313.75 1.063 2.6 1.15 2.775.1.175.163.388.05.613-.113.238-.175.388-.35.588-.175.2-.375.45-.538.6-.175.163-.363.338-.15.7.213.363.95 1.563 2.038 2.525 1.4 1.238 2.588 1.625 2.95 1.813.363.188.575.163.788-.088.213-.25.913-1.063 1.163-1.425.25-.363.5-.3.838-.175s2.138 1.013 2.5 1.188c.363.175.6.263.688.413.088.138.088.813-.25 1.775z" fill="currentColor"/>
+                                        </svg>
+                                        <span>{{ 'HOME.ANNUNCI.WHATSAPP' | translate }}</span>
+                                    </a>
+                                    <a href="tel:+393761094228" class="btn-contact call">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                        </svg>
+                                        <span>{{ 'HOME.ANNUNCI.CALL' | translate }}</span>
+                                    </a>
+                                </div>
+
                                 <div class="announcement-meta">
                                     <span>{{ formatDate(announcement.createdAt) }}</span>
                                     @if (announcement.link) {

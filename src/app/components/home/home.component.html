@@ -74,6 +74,27 @@
     <app-about></app-about>
 </section>
 
+<section id="annunci" class="home-section reveal-on-scroll">
+    <div class="section-container">
+        <div class="section-header center">
+            <span class="section-kicker">{{ 'HOME.ANNUNCI.KICKER' | translate }}</span>
+            <h2 class="section-title">
+                {{ 'HOME.ANNUNCI.TITLE' | translate }} <span class="text-gradient">{{ 'HOME.ANNUNCI.SUBTITLE' | translate }}</span>
+            </h2>
+            <p class="section-desc">
+                {{ 'HOME.ANNUNCI.DESC' | translate }}
+            </p>
+        </div>
+
+        <div class="annunci-cta-container">
+            <a [routerLink]="['/annunci']" class="btn btn-outline btn-lg">
+                {{ 'HOME.ANNUNCI.CTA' | translate }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 <section id="services" class="home-section">
     <div class="section-container">
         <app-services></app-services>

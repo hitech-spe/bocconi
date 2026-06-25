@@ -6,13 +6,14 @@ import {FirestoreService} from '../../services/firestore.service';
 import {Announcement} from '../../models/announcement.model';
 import {AuthService} from "../../services/auth.service";
 import {LoadingService} from "../../services/loading.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-announcements',
     templateUrl: './announcements.component.html',
     styleUrls: ['./announcements.component.scss'],
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule]
+    imports: [CommonModule, ReactiveFormsModule, TranslateModule]
 })
 export class AnnouncementsComponent {
     private authService = inject(AuthService);

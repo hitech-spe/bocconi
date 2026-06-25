@@ -143,6 +143,16 @@
       "EXPERIENCE": "Years of Experience",
       "TEAM": "Team Experts"
     },
+    "ANNUNCI": {
+      "TITLE": "Our",
+      "SUBTITLE": "Announcements",
+      "KICKER": "Unmissable deals",
+      "DESC": "Discover our best offers on used cars, Km 0 and commercial vehicles. Guaranteed quality and competitive prices.",
+      "CTA": "See all announcements",
+      "DETAILS": "Read more",
+      "WHATSAPP": "WhatsApp",
+      "CALL": "Call"
+    },
     "TESTIMONIALS": {
       "TITLE": "What our",
       "SUBTITLE": "Clients Say",
@@ -185,7 +195,9 @@
     "OFFERING": "What we offer",
     "INTERESTED": "Interested in this solution?",
     "CTA_DESC": "Start your journey towards digital innovation today.",
-    "GET_QUOTE": "Request a Quote",
+    "GET_QUOTE": "Ask for Information",
+    "WHATSAPP_MSG": "Hi, I would like to receive more information about the service: {{service}}",
+    "WHATSAPP_ANNUNCIO_MSG": "Hi, I would like to receive more information about the announcement: {{annuncio}}",
     "NOT_FOUND": "Service not found",
     "NOT_FOUND_DESC": "Sorry, the requested service is not available.",
     "BACK_TO_LIST": "Back to list"

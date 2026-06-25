@@ -5,7 +5,8 @@
 
             <a (click)="closeModal()" class="back-link close-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
                 </svg>
             </a>
 
@@ -19,8 +20,8 @@
                     <!--div class="hero-icon-wrap">
                         <span class="hero-icon">{{service.icon}}</span>
                     </div-->
-                    <h1>{{service.title}}</h1>
-                    <p class="hero-lead">{{service.description}}</p>
+                    <h1>{{ service.title }}</h1>
+                    <p class="hero-lead">{{ service.description }}</p>
                 </div>
             </div>
 
@@ -28,7 +29,7 @@
                 <div class="detail-grid">
                     <div class="content-card">
                         <div class="card-label">{{ 'SERVICE_DETAIL.SOLUTION_DETAIL' | translate }}</div>
-                        <p>{{service.fullContent}}</p>
+                        <p>{{ service.fullContent }}</p>
                     </div>
 
                     <div class="features-card">
@@ -38,10 +39,11 @@
                                 <li class="feature-item">
                   <span class="feature-check">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round"/>
                     </svg>
                   </span>
-                                    <span>{{feature}}</span>
+                                    <span>{{ feature }}</span>
                                 </li>
                             }
                         </ul>
@@ -51,7 +53,17 @@
                 <div class="cta-banner">
                     <div class="cta-inner">
                         <h3>{{ 'SERVICE_DETAIL.INTERESTED' | translate }}</h3>
-                        <a routerLink="/contatti" class="btn btn-primary">{{ 'SERVICE_DETAIL.GET_QUOTE' | translate }}</a>
+                        <a [href]="'https://wa.me/393761094228?text=' + ('SERVICE_DETAIL.WHATSAPP_MSG' | translate: { service: service.title })"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-primary">
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                 style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+                                <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.387 7.562-1.987c2.247 1.187 4.812 1.812 7.438 1.812 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.288 22.688c-.338.963-1.675 1.763-2.738 1.988-.725.15-1.663.275-4.812-1.037-4.025-1.675-6.612-5.75-6.812-6.012-.2-.263-1.613-2.15-1.613-4.1s1.013-2.913 1.375-3.313c.363-.4.788-.5 1.05-.5.263 0 .525 0 .75.013.238.013.538-.088.838.638.313.75 1.063 2.6 1.15 2.775.1.175.163.388.05.613-.113.238-.175.388-.35.588-.175.2-.375.45-.538.6-.175.163-.363.338-.15.7.213.363.95 1.563 2.038 2.525 1.4 1.238 2.588 1.625 2.95 1.813.363.188.575.163.788-.088.213-.25.913-1.063 1.163-1.425.25-.363.5-.3.838-.175s2.138 1.013 2.5 1.188c.363.175.6.263.688.413.088.138.088.813-.25 1.775z"
+                                      fill="white"/>
+                            </svg>
+                            {{ 'SERVICE_DETAIL.GET_QUOTE' | translate }}
+                        </a>
                     </div>
                 </div>
             </div>
@@ -59,9 +71,9 @@
         </div>
     </div>
 } @else {
-  <div class="not-found">
-    <h2 class="text-gradient">{{ 'SERVICE_DETAIL.NOT_FOUND' | translate }}</h2>
-    <p>{{ 'SERVICE_DETAIL.NOT_FOUND_DESC' | translate }}</p>
-    <a routerLink="/services" class="btn btn-outline">{{ 'SERVICE_DETAIL.BACK_TO_LIST' | translate }}</a>
-  </div>
+    <div class="not-found">
+        <h2 class="text-gradient">{{ 'SERVICE_DETAIL.NOT_FOUND' | translate }}</h2>
+        <p>{{ 'SERVICE_DETAIL.NOT_FOUND_DESC' | translate }}</p>
+        <a routerLink="/services" class="btn btn-outline">{{ 'SERVICE_DETAIL.BACK_TO_LIST' | translate }}</a>
+    </div>
 }
