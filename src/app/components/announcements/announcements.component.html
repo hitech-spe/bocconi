@@ -126,7 +126,8 @@
                                 @if (announcement.imageUrls && announcement.imageUrls.length > 0) {
                                     <img [src]="announcement.imageUrls[currentImageIndex[announcement.id!] || 0]"
                                          [alt]="announcement.name"
-                                         class="announcement-image">
+                                         class="announcement-image"
+                                         [style.object-position]="announcement.imagePositions ? announcement.imagePositions[currentImageIndex[announcement.id!] || 0] : 'center'">
 
                                     @if (announcement.imageUrls.length > 1) {
                                         <button class="carousel-control prev"
@@ -245,12 +246,29 @@
                         </label>
 
                         @if (previewUrls.length > 0) {
-                            <div class="previews-container" style="display: flex; gap: 10px; margin-top: 10px;">
+                            <div class="previews-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
                                 @for (url of previewUrls; track $index) {
-                                    <div class="preview-item">
-                                        <img [src]="url" class="image-preview" alt="Anteprima">
-                                        <button type="button" class="remove-img-btn" (click)="removeImage($index)">×
-                                        </button>
+                                    <div class="preview-card" style="display: flex; gap: 15px; background: #f1f5f9; padding: 10px; border-radius: 8px;">
+                                        <div class="preview-item" style="position: relative; width: 80px; height: 80px; flex-shrink: 0;">
+                                            <img [src]="url" class="image-preview" alt="Anteprima" [style.object-position]="imagePositions[$index]" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                                            <button type="button" class="remove-img-btn" (click)="removeImage($index); $event.stopPropagation()" style="position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; border-radius: 50%; background: #dc2626; color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto;">×</button>
+                                        </div>
+                                        <div class="preview-controls" style="flex: 1;">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <p style="margin: 0; font-size: 0.8rem; font-weight: 600;">Regola inquadratura:</p>
+                                                <button type="button" class="btn-edit-pos" (click)="openImageEditor($index)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 14px; height: 14px;">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                                                    </svg>
+                                                    Sposta
+                                                </button>
+                                            </div>
+                                            <div class="position-btns" style="display: flex; gap: 5px;">
+                                                <button type="button" class="btn-pos" [class.active]="imagePositions[$index] === 'top'" (click)="setImagePosition($index, 'top')">Alto</button>
+                                                <button type="button" class="btn-pos" [class.active]="imagePositions[$index] === 'center' || !imagePositions[$index]" (click)="setImagePosition($index, 'center')">Centro</button>
+                                                <button type="button" class="btn-pos" [class.active]="imagePositions[$index] === 'bottom'" (click)="setImagePosition($index, 'bottom')">Basso</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 }
                             </div>
@@ -311,6 +329,34 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+    }
+    @if (isEditorOpen && editingImageIndex !== null) {
+        <div class="modal-overlay editor-overlay" (click)="closeImageEditor()">
+            <div class="modal image-editor-modal" (click)="$event.stopPropagation()">
+                <div class="modal-header">
+                    <h3>Regola inquadratura</h3>
+                    <button class="close-btn" type="button" (click)="closeImageEditor()">×</button>
+                </div>
+                <div class="editor-body">
+                    <p class="editor-hint">Trascina l'immagine in qualsiasi direzione per posizionarla</p>
+                    <div class="large-preview-container" 
+                         (mousedown)="onImageDragStart($event, editingImageIndex)"
+                         (touchstart)="onImageDragStart($event, editingImageIndex)">
+                        <img [src]="previewUrls[editingImageIndex]" 
+                             [style.object-position]="imagePositions[editingImageIndex]"
+                             alt="Editor">
+                        <div class="drag-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="editor-actions">
+                        <button type="button" class="btn btn-primary" (click)="closeImageEditor()">Fine</button>
+                    </div>
+                </div>
             </div>
         </div>
     }

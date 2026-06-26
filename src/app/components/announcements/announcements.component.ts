@@ -40,7 +40,17 @@ export class AnnouncementsComponent {
 
     selectedFiles: File[] = [];
     previewUrls: (string | ArrayBuffer)[] = [];
+    imagePositions: string[] = [];
     isDragging = false;
+
+    // Dragging state for image position
+    draggingIndex: number | null = null;
+    startY = 0;
+    startX = 0;
+    startPercentX = 50;
+    startPercentY = 50;
+    isEditorOpen = false;
+    editingImageIndex: number | null = null;
 
     constructor() {
         this.loadingService.show();
@@ -104,7 +114,7 @@ export class AnnouncementsComponent {
             registrationDate: [''],
             fuel: [''],
             transmission: ['manuale'],
-            description: ['', [Validators.required, Validators.maxLength(240)]],
+            description: ['', [Validators.required]],
         });
         this.loadingService.hide()
     }
@@ -114,6 +124,7 @@ export class AnnouncementsComponent {
         this.announcementForm.reset({transmission: 'manuale'});
         this.selectedFiles = [];
         this.previewUrls = [];
+        this.imagePositions = [];
         this.isModalOpen = true;
     }
 
@@ -134,6 +145,7 @@ export class AnnouncementsComponent {
         });
         this.selectedFiles = [];
         this.previewUrls = announcement.imageUrls ?? [];
+        this.imagePositions = announcement.imagePositions ?? (announcement.imageUrls ? announcement.imageUrls.map(() => 'center') : []);
         this.isModalOpen = true;
     }
 
@@ -143,6 +155,7 @@ export class AnnouncementsComponent {
         this.announcementForm.reset();
         this.selectedFiles = [];
         this.previewUrls = [];
+        this.imagePositions = [];
     }
 
     handleFileSelect(files: FileList): void {
@@ -154,6 +167,7 @@ export class AnnouncementsComponent {
             reader.onload = () => {
                 if (reader.result) {
                     this.previewUrls.push(reader.result);
+                    this.imagePositions.push('center');
                 }
             };
             reader.readAsDataURL(file);
@@ -165,6 +179,7 @@ export class AnnouncementsComponent {
             this.selectedFiles.splice(index, 1);
         }
         this.previewUrls.splice(index, 1);
+        this.imagePositions.splice(index, 1);
     }
 
     onFileSelected(event: Event): void {
@@ -210,6 +225,7 @@ export class AnnouncementsComponent {
             const announcementData: Omit<Announcement, 'id' | 'createdAt'> = {
                 name: formValue.name?.trim(),
                 imageUrls: finalImageUrls,
+                imagePositions: this.imagePositions,
                 link: formValue.link?.trim() || null,
                 km: formValue.km ?? null,
                 registrationDate: formValue.registrationDate || null,
@@ -245,6 +261,7 @@ export class AnnouncementsComponent {
         });
         this.selectedFiles = [];
         this.previewUrls = announcement.imageUrls ?? [];
+        this.imagePositions = announcement.imagePositions ?? (announcement.imageUrls ? announcement.imageUrls.map(() => 'center') : []);
         this.isModalOpen = true;
     }
 
@@ -325,5 +342,81 @@ export class AnnouncementsComponent {
             });
         }
         return 'Data non valida';
+    }
+
+    setImagePosition(index: number, position: string): void {
+        this.imagePositions[index] = position;
+    }
+
+    openImageEditor(index: number): void {
+        this.editingImageIndex = index;
+        this.isEditorOpen = true;
+    }
+
+    closeImageEditor(): void {
+        this.isEditorOpen = false;
+        this.editingImageIndex = null;
+    }
+
+    onImageDragStart(event: MouseEvent | TouchEvent, index: number): void {
+        event.preventDefault();
+        this.draggingIndex = index;
+        const clientY = event instanceof MouseEvent ? event.clientY : event.touches[0].clientY;
+        const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+        this.startY = clientY;
+        this.startX = clientX;
+
+        const currentPos = this.imagePositions[index] || 'center';
+        
+        // Parse current position (e.g., "center 30%" or "10% 20%" or "top")
+        if (currentPos === 'top') { this.startPercentX = 50; this.startPercentY = 0; }
+        else if (currentPos === 'center') { this.startPercentX = 50; this.startPercentY = 50; }
+        else if (currentPos === 'bottom') { this.startPercentX = 50; this.startPercentY = 100; }
+        else {
+            const parts = currentPos.split(' ');
+            if (parts.length === 2) {
+                // Handle "center 30%"
+                if (parts[0] === 'center') this.startPercentX = 50;
+                else this.startPercentX = parseInt(parts[0], 10) || 50;
+                
+                this.startPercentY = parseInt(parts[1], 10) || 50;
+            } else {
+                this.startPercentX = 50;
+                this.startPercentY = 50;
+            }
+        }
+
+        const moveHandler = (e: MouseEvent | TouchEvent) => this.onImageDragMove(e);
+        const endHandler = () => {
+            this.draggingIndex = null;
+            window.removeEventListener('mousemove', moveHandler);
+            window.removeEventListener('mouseup', endHandler);
+            window.removeEventListener('touchmove', moveHandler);
+            window.removeEventListener('touchend', endHandler);
+        };
+
+        window.addEventListener('mousemove', moveHandler);
+        window.addEventListener('mouseup', endHandler);
+        window.addEventListener('touchmove', moveHandler, { passive: false });
+        window.addEventListener('touchend', endHandler);
+    }
+
+    onImageDragMove(event: MouseEvent | TouchEvent): void {
+        if (this.draggingIndex === null) return;
+
+        const clientY = event instanceof MouseEvent ? event.clientY : event.touches[0].clientY;
+        const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+        
+        const deltaY = clientY - this.startY;
+        const deltaX = clientX - this.startX;
+        
+        // Sensitivity: 1px = 0.4%
+        let newPercentY = this.startPercentY + (deltaY * 0.4);
+        let newPercentX = this.startPercentX + (deltaX * 0.4);
+        
+        newPercentY = Math.max(0, Math.min(100, newPercentY));
+        newPercentX = Math.max(0, Math.min(100, newPercentX));
+
+        this.imagePositions[this.draggingIndex] = `${Math.round(newPercentX)}% ${Math.round(newPercentY)}%`;
     }
 }
