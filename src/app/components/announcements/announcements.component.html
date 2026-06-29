@@ -215,7 +215,7 @@
         <div class="modal-overlay" (click)="closeModal()">
             <div class="modal" (click)="$event.stopPropagation()">
                 <div class="modal-header">
-                    <h3>{{ isEditing ? 'Modifica annuncio' : 'Nuovo annuncio' }}</h3>
+                    <h3>{{ editingAnnouncementId ? 'Modifica annuncio' : 'Nuovo annuncio' }}</h3>
                     <button class="close-btn" type="button" (click)="closeModal()">×</button>
                 </div>
 
@@ -250,7 +250,12 @@
                                 @for (url of previewUrls; track $index) {
                                     <div class="preview-card" style="display: flex; gap: 15px; background: #f1f5f9; padding: 10px; border-radius: 8px;">
                                         <div class="preview-item" style="position: relative; width: 80px; height: 80px; flex-shrink: 0;">
-                                            <img [src]="url" class="image-preview" alt="Anteprima" [style.object-position]="imagePositions[$index]" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                                            <img [src]="url" class="image-preview" alt="Anteprima" [style.object-position]="imagePositions[$index]" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;" [style.opacity]="url.startsWith('data:image') ? '0.5' : '1'">
+                                            @if (url.startsWith('data:image')) {
+                                                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                                                    <span class="spinner-border spinner-border-sm" style="width: 1rem; height: 1rem; color: #3b82f6;"></span>
+                                                </div>
+                                            }
                                             <button type="button" class="remove-img-btn" (click)="removeImage($index); $event.stopPropagation()" style="position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; border-radius: 50%; background: #dc2626; color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto;">×</button>
                                         </div>
                                         <div class="preview-controls" style="flex: 1;">
@@ -275,7 +280,7 @@
                         }
                     </div>
 
-                    @if (isEditing) {
+                    @if (editingAnnouncementId) {
                         <p class="edit-helper-text">Puoi gestire le immagini caricate (massimo 3).</p>
                     }
 
@@ -324,8 +329,11 @@
                     <div class="form-actions">
                         <button class="btn btn-outline" type="button" (click)="closeModal()">Annulla</button>
                         <button class="btn btn-primary" type="submit"
-                                [disabled]="announcementForm.invalid || (!isEditing && !selectedFiles.length)">
-                            {{ (isEditing ? 'Salva modifiche' : 'Pubblica annuncio') }}
+                                [disabled]="announcementForm.invalid || previewUrls.length === 0 || isSubmitting">
+                            @if (isSubmitting) {
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            }
+                            {{ (editingAnnouncementId ? 'Salva modifiche' : 'Pubblica annuncio') }}
                         </button>
                     </div>
                 </form>

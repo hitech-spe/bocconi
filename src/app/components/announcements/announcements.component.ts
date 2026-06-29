@@ -8,6 +8,7 @@ import {Announcement} from '../../models/announcement.model';
 import {AuthService} from "../../services/auth.service";
 import {LoadingService} from "../../services/loading.service";
 import {TranslateModule} from "@ngx-translate/core";
+import {CloudinaryService} from "../../services/cloudinary.service";
 
 @Component({
     selector: 'app-announcements',
@@ -22,6 +23,7 @@ export class AnnouncementsComponent {
     private firestoreService = inject(FirestoreService);
     private fb = inject(FormBuilder);
     private loadingService = inject(LoadingService);
+    private cloudinaryService = inject(CloudinaryService);
 
     announcements$: Observable<Announcement[]>;
     
@@ -39,7 +41,7 @@ export class AnnouncementsComponent {
     editingAnnouncementId: string | null = null;
 
     selectedFiles: File[] = [];
-    previewUrls: (string | ArrayBuffer)[] = [];
+    previewUrls: string[] = [];
     imagePositions: string[] = [];
     isDragging = false;
 
@@ -128,7 +130,7 @@ export class AnnouncementsComponent {
         this.isModalOpen = true;
     }
 
-    openEditModal(announcement: Announcement): void {
+    async openEditModal(announcement: Announcement): Promise<void> {
         if (!announcement.id) {
             return;
         }
@@ -144,8 +146,13 @@ export class AnnouncementsComponent {
             description: announcement.description ?? '',
         });
         this.selectedFiles = [];
-        this.previewUrls = announcement.imageUrls ?? [];
+        this.previewUrls = [];
         this.imagePositions = announcement.imagePositions ?? (announcement.imageUrls ? announcement.imageUrls.map(() => 'center') : []);
+
+        if (announcement.imageUrls && announcement.imageUrls.length > 0) {
+            this.previewUrls = [...announcement.imageUrls];
+        }
+
         this.isModalOpen = true;
     }
 
@@ -158,26 +165,72 @@ export class AnnouncementsComponent {
         this.imagePositions = [];
     }
 
-    handleFileSelect(files: FileList): void {
-        const filesArray = Array.from(files).slice(0, 3 - this.selectedFiles.length);
-        
-        filesArray.forEach(file => {
-            this.selectedFiles.push(file);
+    async handleFileSelect(files: FileList): Promise<void> {
+        const filesArray = Array.from(files).slice(0, 3 - this.previewUrls.length);
+
+        for (const file of filesArray) {
+            try {
+                const base64 = await this.fileToBase64(file);
+                const compressedBase64 = await this.compressImage(base64, 1200, 0.7);
+                
+                // Aggiungiamo temporaneamente il base64 per la preview immediata
+                this.previewUrls.push(compressedBase64);
+                this.imagePositions.push('center');
+                const currentIndex = this.previewUrls.length - 1;
+
+                // Carichiamo immediatamente su Cloudinary (uno alla volta grazie all'await nel loop)
+                const uploadedUrl = await this.cloudinaryService.uploadImage(compressedBase64);
+                
+                // Sostituiamo il base64 con l'URL finale usando l'indice salvato
+                this.previewUrls[currentIndex] = uploadedUrl;
+            } catch (error) {
+                console.error("Errore durante la gestione dell'immagine:", error);
+                alert("Errore durante il caricamento di un'immagine.");
+            }
+        }
+    }
+
+    private fileToBase64(file: File): Promise<string> {
+        return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = () => {
-                if (reader.result) {
-                    this.previewUrls.push(reader.result);
-                    this.imagePositions.push('center');
-                }
-            };
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = error => reject(error);
             reader.readAsDataURL(file);
         });
     }
 
+    private compressImage(base64: string, maxWidth: number, quality: number): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = base64;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+
+                if (width > maxWidth) {
+                    height = (height * maxWidth) / width;
+                    width = maxWidth;
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    reject(new Error('Impossibile ottenere il contesto 2D del canvas'));
+                    return;
+                }
+
+                ctx.drawImage(img, 0, 0, width, height);
+                // Utilizziamo jpeg per una migliore compressione rispetto a png
+                resolve(canvas.toDataURL('image/jpeg', quality));
+            };
+            img.onerror = (error) => reject(error);
+        });
+    }
+
     removeImage(index: number): void {
-        if (index < this.selectedFiles.length) {
-            this.selectedFiles.splice(index, 1);
-        }
         this.previewUrls.splice(index, 1);
         this.imagePositions.splice(index, 1);
     }
@@ -213,18 +266,23 @@ export class AnnouncementsComponent {
             alert('Nome, descrizione e almeno un\'immagine sono obbligatori.');
             return;
         }
-        this.loadingService.show();
 
+        // Verifichiamo che tutti gli upload siano completati (nessun data:image rimasto)
+        const isStillUploading = this.previewUrls.some(url => url.startsWith('data:image'));
+        if (isStillUploading) {
+            alert('Attendi il caricamento di tutte le immagini prima di salvare.');
+            return;
+        }
+
+        this.loadingService.show();
         this.isSubmitting = true;
 
         try {
-            const finalImageUrls: string[] = this.previewUrls.map(p => p.toString());
-
             const formValue = this.announcementForm.value;
 
             const announcementData: Omit<Announcement, 'id' | 'createdAt'> = {
                 name: formValue.name?.trim(),
-                imageUrls: finalImageUrls,
+                imageUrls: this.previewUrls,
                 imagePositions: this.imagePositions,
                 link: formValue.link?.trim() || null,
                 km: formValue.km ?? null,
@@ -249,7 +307,7 @@ export class AnnouncementsComponent {
         }
     }
 
-    onCopy(announcement: Announcement) {
+    async onCopy(announcement: Announcement) {
         this.announcementForm.patchValue({
             name: announcement.name,
             link: announcement.link ?? '',
@@ -260,8 +318,13 @@ export class AnnouncementsComponent {
             description: announcement.description ?? '',
         });
         this.selectedFiles = [];
-        this.previewUrls = announcement.imageUrls ?? [];
+        this.previewUrls = [];
         this.imagePositions = announcement.imagePositions ?? (announcement.imageUrls ? announcement.imageUrls.map(() => 'center') : []);
+        
+        if (announcement.imageUrls && announcement.imageUrls.length > 0) {
+            this.previewUrls = [...announcement.imageUrls];
+        }
+        
         this.isModalOpen = true;
     }
 
