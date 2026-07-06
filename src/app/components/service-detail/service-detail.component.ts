@@ -125,34 +125,6 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
       }
     },
     {
-      id: 'moto-caravan',
-      title: 'Noleggio Veicoli',
-      icon: '🚗',
-      description: 'Soluzioni di mobilità flessibili per ogni esigenza, dal breve al lungo termine.',
-      features: [
-        'City Car / Utilitarie: Fiat Panda, Toyota Yaris. Perfette per la città, consumi bassi. Assicurazione e soccorso inclusi.',
-        'SUV e Station Wagon: Jeep Renegade, Fiat 500X, Skoda Octavia. Comfort e spazio per la famiglia.',
-        'Furgoni Merci: Doblò, Ducato, Transit. Da 3 a 12mq, anche con gancio traino e ribaltabile.',
-        'Furgoni Frigo e Speciali: Per catering, fioristi e trasporti specifici. Preventivo personalizzato.',
-        'Noleggio Lungo Termine (12-60 mesi): Tutto incluso (bollo, assicurazione, manutenzione, gomme) a canone fisso.'
-      ],
-      fullContent: 'Che ti serva una piccola auto per la città o un furgone per il tuo lavoro, il nostro servizio di noleggio offre mezzi recenti, sicuri e con pacchetti tutto incluso per eliminare ogni pensiero.',
-      translations: {
-        en: {
-          title: 'Vehicle Rental',
-          description: 'Flexible mobility solutions for every need, from short to long term.',
-          features: [
-            'City Cars / Hatchbacks: Fiat Panda, Toyota Yaris. Perfect for the city, low consumption. Insurance and recovery included.',
-            'SUVs & Station Wagons: Jeep Renegade, Fiat 500X, Skoda Octavia. Comfort and space for the family.',
-            'Cargo Vans: Doblò, Ducato, Transit. From 3 to 12sqm, also with tow hook and tipper.',
-            'Fridge & Special Vans: For catering, florists, and specific transports. Personalized quote.',
-            'Long Term Rental (12-60 months): All-inclusive (tax, insurance, maintenance, tires) at a fixed rate.'
-          ],
-          fullContent: 'Whether you need a small car for the city or a van for your work, our rental service offers recent, safe vehicles with all-inclusive packages to eliminate all worries.'
-        }
-      }
-    },
-    {
       id: 'vendita-veicoli',
       title: 'Vendita Auto e Furgoni',
       icon: '🏷️',
