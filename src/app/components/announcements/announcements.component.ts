@@ -9,6 +9,7 @@ import {AuthService} from "../../services/auth.service";
 import {LoadingService} from "../../services/loading.service";
 import {TranslateModule} from "@ngx-translate/core";
 import {CloudinaryService} from "../../services/cloudinary.service";
+import {SEOService} from "../../services/seo.service";
 
 @Component({
     selector: 'app-announcements',
@@ -24,6 +25,7 @@ export class AnnouncementsComponent {
     private fb = inject(FormBuilder);
     private loadingService = inject(LoadingService);
     private cloudinaryService = inject(CloudinaryService);
+    private seoService = inject(SEOService);
 
     announcements$: Observable<Announcement[]>;
     
@@ -55,6 +57,7 @@ export class AnnouncementsComponent {
     editingImageIndex: number | null = null;
 
     constructor() {
+        this.seoService.trackSEO('SEO.ANNOUNCEMENTS');
         this.loadingService.show();
         this.announcements$ = this.firestoreService.getAnnunci();
 

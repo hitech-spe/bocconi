@@ -1,7 +1,8 @@
-import { Component, HostListener, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, ElementRef, AfterViewInit, OnDestroy, OnInit, inject } from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {NgOptimizedImage} from "@angular/common";
+import {SEOService} from "../../services/seo.service";
 
 @Component({
   selector: 'app-services',
@@ -15,10 +16,15 @@ import {NgOptimizedImage} from "@angular/common";
     ],
   standalone: true
 })
-export class ServicesComponent implements AfterViewInit, OnDestroy {
+export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
+  private seoService = inject(SEOService);
   private observer?: IntersectionObserver;
 
   constructor(private el: ElementRef) {}
+
+  ngOnInit(): void {
+    this.seoService.trackSEO('SEO.SERVICES');
+  }
 
   ngAfterViewInit(): void {
     // Usiamo setTimeout per assicurarci che il DOM sia completamente renderizzato

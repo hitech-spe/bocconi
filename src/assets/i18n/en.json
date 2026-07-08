@@ -290,5 +290,39 @@
     "SEC4_TEXT": "Bocconi Srl is committed to maintaining website information as accurate and up-to-date as possible, but makes no explicit or implicit warranty regarding its completeness or accuracy. Bocconi Srl will not be liable for any direct, indirect, or consequential damages arising from the use or inability to use the website or its services.",
     "SEC5_TITLE": "5. Changes and Applicable Law",
     "SEC5_TEXT": "We reserve the right to modify these Terms and Conditions at any time. Changes will be effective as soon as published on the site. These terms are governed and interpreted in accordance with the laws of Italy. Any dispute will be under the exclusive jurisdiction of the Court of Taranto."
+  },
+  "SEO": {
+    "HOME": {
+      "TITLE": "Home | Bocconi Srl",
+      "DESCRIPTION": "Bocconi Srl is a mechanical and bodywork workshop in Massafra. We offer auto maintenance, repairs, and fast, professional assistance."
+    },
+    "ABOUT": {
+      "TITLE": "About Us | Bocconi Srl",
+      "DESCRIPTION": "Discover the history and professionalism of Bocconi Srl in Massafra. Experts in workshop services, bodywork, and construction."
+    },
+    "SERVICES": {
+      "TITLE": "Services | Bocconi Srl",
+      "DESCRIPTION": "Our services in Massafra: vehicle customization, industrial demolition, construction, mechanical workshop, yellow plates, and vehicle sales."
+    },
+    "CONTACT": {
+      "TITLE": "Contact | Bocconi Srl",
+      "DESCRIPTION": "Contact Bocconi Srl in Massafra for quotes, assistance, and information on industrial and commercial vehicle services."
+    },
+    "LOGIN": {
+      "TITLE": "Login | Bocconi Srl",
+      "DESCRIPTION": "Reserved area for the management and publication of industrial and commercial vehicle announcements for Bocconi Srl."
+    },
+    "ANNOUNCEMENTS": {
+      "TITLE": "Announcements | Bocconi Srl",
+      "DESCRIPTION": "Browse used and guaranteed industrial and commercial vehicle listings and offers by Bocconi Srl in Massafra."
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy Policy | Bocconi Srl",
+      "DESCRIPTION": "Privacy policy and personal data processing information for Bocconi Srl in compliance with GDPR."
+    },
+    "TERMS": {
+      "TITLE": "Terms & Conditions | Bocconi Srl",
+      "DESCRIPTION": "Terms and conditions of use for the website and commercial/industrial services of Bocconi Srl."
+    }
   }
 }

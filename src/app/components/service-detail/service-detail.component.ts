@@ -3,6 +3,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import {Location} from "@angular/common";
+import {SEOService} from "../../services/seo.service";
 
 interface Service {
   id: string;
@@ -299,6 +300,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private location = inject(Location);
   private translate = inject(TranslateService);
+  private seoService = inject(SEOService);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -322,7 +324,31 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     const rawService = this.services.find(s => s.id === id);
     if (rawService) {
       this.service = this.localizeService(rawService);
+      if (this.service) {
+        const imageUrl = this.getServiceImage(id);
+        this.seoService.updateDirectSEO(
+          `${this.service.title} | Bocconi Srl`,
+          this.service.description,
+          imageUrl
+        );
+      }
     }
+  }
+
+  private getServiceImage(id: string): string {
+    const mapping: {[key: string]: string} = {
+      'officina-meccanica': 'officinaMeccanica.webp',
+      'officina-carrozzeria': 'officinaCarrozzeria.webp',
+      'edilizia': 'edilizia.jpeg',
+      'vendita-veicoli': 'venditaIndustriali.jpeg',
+      'demolizioni-industriali': 'demolizioni.jpeg',
+      'recupero-smaltimento-ferroso': 'recuperoSmaltimento.jpeg',
+      'revisioni-collaudi': 'revisione.jpeg',
+      'targhe-gialle-atp': 'targheGialle.jpeg',
+      'pneumatici-allestimenti-ricambi': 'logoNew.webp'
+    };
+    const imgName = mapping[id] || 'aziendaBocconi.jpeg';
+    return `https://bocconi.netlify.app/assets/images/${imgName}`;
   }
 
   private localizeService(service: Service): Service {

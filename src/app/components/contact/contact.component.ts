@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import {TranslateModule} from "@ngx-translate/core";
 import {FormsModule} from "@angular/forms";
 import {NgClass} from "@angular/common";
+import {SEOService} from "../../services/seo.service";
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +16,9 @@ import {NgClass} from "@angular/common";
   ],
   standalone: true
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  private seoService = inject(SEOService);
+
   formData = {
     name: '',
     email: '',
@@ -25,6 +28,10 @@ export class ContactComponent {
 
   isSending = false;
   submitStatus: 'success' | 'error' | null = null;
+
+  ngOnInit(): void {
+    this.seoService.trackSEO('SEO.CONTACT');
+  }
 
   onSubmit() {
     if (this.isSending) return;

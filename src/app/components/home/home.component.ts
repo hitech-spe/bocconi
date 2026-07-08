@@ -17,6 +17,7 @@ import {CommonModule} from "@angular/common";
 import {FirestoreService} from "../../services/firestore.service";
 import {Observable, map} from "rxjs";
 import {Announcement} from "../../models/announcement.model";
+import {SEOService} from "../../services/seo.service";
 
 @Component({
     selector: 'app-home',
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('featureVideo') videoElement?: ElementRef<HTMLVideoElement>;
     private host = inject(ElementRef<HTMLElement>);
     private firestoreService = inject(FirestoreService);
+    private seoService = inject(SEOService);
     private observer?: IntersectionObserver;
 
     showBackToTop = false;
@@ -52,6 +54,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     );
 
     ngOnInit(): void {
+        this.seoService.trackSEO('SEO.HOME');
     }
 
     ngAfterViewInit(): void {

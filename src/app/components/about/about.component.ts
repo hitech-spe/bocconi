@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
+import {SEOService} from "../../services/seo.service";
 
 @Component({
   selector: 'app-about',
@@ -10,6 +11,10 @@ import {TranslateModule} from "@ngx-translate/core";
   ],
   standalone: true
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  private seoService = inject(SEOService);
 
+  ngOnInit(): void {
+    this.seoService.trackSEO('SEO.ABOUT');
+  }
 }

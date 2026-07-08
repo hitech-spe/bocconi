@@ -4,10 +4,109 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://bocconi.netlify.app/</loc>
-  <lastmod>2026-05-25T12:17:31+00:00</lastmod>
-</url>
+  <!-- Pagine Principali -->
+  <url>
+    <loc>https://bocconi.netlify.app/</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/home</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/about</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/annunci</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/contact</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/privacy</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/terms</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
 
-
+  <!-- Dettaglio Servizi (Deep Links) -->
+  <url>
+    <loc>https://bocconi.netlify.app/services/officina-meccanica</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/officina-carrozzeria</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/edilizia</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/vendita-veicoli</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/demolizioni-industriali</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/recupero-smaltimento-ferroso</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/revisioni-collaudi</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/targhe-gialle-atp</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://bocconi.netlify.app/services/pneumatici-allestimenti-ricambi</loc>
+    <lastmod>2026-07-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

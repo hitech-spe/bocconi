@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from "../../services/auth.service";
 import { LoadingService } from "../../services/loading.service";
 import { TranslateModule } from "@ngx-translate/core";
+import { SEOService } from "../../services/seo.service";
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,12 @@ import { TranslateModule } from "@ngx-translate/core";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   private authService = inject(AuthService);
   private loadingService = inject(LoadingService);
   private router = inject(Router);
+  private seoService = inject(SEOService);
 
   isLoginMode = true;
   email = '';
@@ -27,6 +29,10 @@ export class LoginComponent {
   error = '';
   success = '';
   isLoading = false;
+
+  ngOnInit(): void {
+    this.seoService.trackSEO('SEO.LOGIN');
+  }
 
   toggleMode() {
     this.isLoginMode = !this.isLoginMode;
