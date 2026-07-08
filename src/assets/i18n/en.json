@@ -258,5 +258,37 @@
     "ERROR_MATCH": "Passwords do not match",
     "ERROR_GENERIC": "An error occurred. Please try again.",
     "SUCCESS_REGISTER": "Account created successfully! You can now login."
+  },
+  "PRIVACY": {
+    "TITLE": "Privacy Policy",
+    "SUBTITLE": "Protection of personal data",
+    "LAST_UPDATED": "Last updated: July 2026",
+    "INTRO": "Welcome to Bocconi Srl. We respect your privacy and are committed to protecting your personal data. This privacy policy describes how we collect, use, store, and protect your information when you visit our website and use our services.",
+    "SEC1_TITLE": "1. Data Controller",
+    "SEC1_TEXT": "The data controller is BOCCONI SRL, with operational headquarters in Contrada San Sergio snc, Strada Statale Appia, and workshop in Via Chiatona 26, Massafra. For any questions, you can contact us at: amministrazionebocconisrl@gmail.com.",
+    "SEC2_TITLE": "2. Data We Collect",
+    "SEC2_TEXT": "We collect various types of information to provide you with better services: data provided voluntarily (such as first name, last name, email, phone number via contact forms or registration), navigation data (IP address, browser type, device info), and cookies to enhance your website experience.",
+    "SEC3_TITLE": "3. Purposes of Processing",
+    "SEC3_TEXT": "Your personal data is processed for the following purposes: responding to your requests for information or quotes, allowing you to access the reserved area and manage announcements, complying with legal and tax obligations, and improving website security and usability.",
+    "SEC4_TITLE": "4. Data Sharing and Retention",
+    "SEC4_TEXT": "We do not sell or lease your personal data to third parties. We only share data with trusted service providers necessary for site operations (such as Firebase for authentication/database and Cloudinary for media). Data is stored for as long as strictly necessary to fulfill the purposes for which it was collected, in accordance with applicable regulations.",
+    "SEC5_TITLE": "5. Your Rights (GDPR)",
+    "SEC5_TEXT": "In accordance with the General Data Protection Regulation (GDPR), you have the right to access your personal data, request rectification or erasure, limit its processing, object to processing, and request data portability. To exercise these rights, please send an email to amministrazionebocconisrl@gmail.com."
+  },
+  "TERMS": {
+    "TITLE": "Terms and Conditions",
+    "SUBTITLE": "Terms of use for our services",
+    "LAST_UPDATED": "Last updated: July 2026",
+    "INTRO": "The following Terms and Conditions govern the access and use of the website and services offered by Bocconi Srl. By accessing or using our site, you agree to be bound by these conditions. If you do not agree with any part of the terms, please do not use our services.",
+    "SEC1_TITLE": "1. Website Use",
+    "SEC1_TEXT": "The user agrees to use the website and its services solely for lawful purposes and in compliance with applicable laws. Any use of the site that may cause damage, disruption, or overloading of digital infrastructures or compromise the security of Bocconi Srl systems is prohibited.",
+    "SEC2_TITLE": "2. User Accounts and Registration",
+    "SEC2_TEXT": "To access certain restricted features (such as announcement management), you may be required to create an account. The user is responsible for maintaining account credential confidentiality and for all activities occurring under their account. Bocconi Srl reserves the right to suspend or delete accounts in case of violations.",
+    "SEC3_TITLE": "3. Intellectual Property",
+    "SEC3_TEXT": "All content present on the site (texts, graphics, logos, icons, images, videos, software) is the exclusive property of Bocconi Srl or its business partners and is protected by copyright and intellectual property laws. Reproduction, distribution, or dissemination without explicit written authorization is prohibited.",
+    "SEC4_TITLE": "4. Limitation of Liability",
+    "SEC4_TEXT": "Bocconi Srl is committed to maintaining website information as accurate and up-to-date as possible, but makes no explicit or implicit warranty regarding its completeness or accuracy. Bocconi Srl will not be liable for any direct, indirect, or consequential damages arising from the use or inability to use the website or its services.",
+    "SEC5_TITLE": "5. Changes and Applicable Law",
+    "SEC5_TEXT": "We reserve the right to modify these Terms and Conditions at any time. Changes will be effective as soon as published on the site. These terms are governed and interpreted in accordance with the laws of Italy. Any dispute will be under the exclusive jurisdiction of the Court of Taranto."
   }
 }

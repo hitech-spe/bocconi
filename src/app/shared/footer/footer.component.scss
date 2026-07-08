@@ -110,6 +110,30 @@
       font-size: 0.9rem;
       color: #64748b;
     }
+
+    .legal-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #64748b;
+
+      a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--accent);
+        }
+      }
+
+      span {
+        color: rgba(148, 163, 184, 0.3);
+        user-select: none;
+      }
+    }
   }
 
   .footer-bottom {

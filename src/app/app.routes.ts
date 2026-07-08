@@ -7,6 +7,8 @@ import {ServiceDetailComponent} from './components/service-detail/service-detail
 import {LoginComponent} from "./components/login/login.component";
 import {authGuard} from "./guards/auth.guard";
 import {AnnouncementsComponent} from "./components/announcements/announcements.component";
+import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy.component";
+import {TermsConditionsComponent} from "./components/terms-conditions/terms-conditions.component";
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -28,5 +30,7 @@ export const routes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'login', component: LoginComponent},
     {path: 'annunci', component: AnnouncementsComponent},
+    {path: 'privacy', component: PrivacyPolicyComponent},
+    {path: 'terms', component: TermsConditionsComponent},
     {path: '**', redirectTo: '/home'}
 ];

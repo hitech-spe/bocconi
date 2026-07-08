@@ -184,7 +184,7 @@
   "FOOTER": {
     "RIGHTS": "Tutti i diritti riservati.",
     "PRIVACY": "Privacy Policy",
-    "TERMS": "Terms of Service",
+    "TERMS": "Termini e Condizioni",
     "QUICK_LINKS": "Link Rapidi",
     "OFFICE": "Sede Operativa",
     "WORKSHOP": "Officina",
@@ -270,5 +270,37 @@
     "ERROR_REQUIRED_FIELDS": "Nome e cognome sono obbligatori",
     "ERROR_GENERIC": "Si è verificato un errore. Riprova.",
     "SUCCESS_REGISTER": "Account creato con successo! Ora puoi accedere."
+  },
+  "PRIVACY": {
+    "TITLE": "Informativa sulla Privacy",
+    "SUBTITLE": "Tutela dei dati personali",
+    "LAST_UPDATED": "Ultimo aggiornamento: Luglio 2026",
+    "INTRO": "Benvenuto su Bocconi Srl. Rispettiamo la tua privacy e ci impegniamo a proteggere i tuoi dati personali. Questa informativa descrive come raccogliamo, utilizziamo, conserviamo e proteggiamo le tue informazioni quando visiti il nostro sito e utilizzi i nostri servizi.",
+    "SEC1_TITLE": "1. Titolare del Trattamento dei Dati",
+    "SEC1_TEXT": "Il Titolare del trattamento dei dati è BOCCONI SRL, con sede operativa in Contrada San Sergio snc, Strada Statale Appia e officina in Via Chiatona 26, Massafra. Per qualsiasi domanda, puoi contattarci all'indirizzo email: amministrazionebocconisrl@gmail.com.",
+    "SEC2_TITLE": "2. Dati che Raccogliamo",
+    "SEC2_TEXT": "Raccogliamo diverse tipologie di informazioni per offrirti servizi migliori: dati forniti volontariamente (come nome, cognome, email, numero di telefono tramite moduli di contatto o registrazione), dati di navigazione (indirizzo IP, tipo di browser, informazioni sul dispositivo) e cookie per migliorare la tua esperienza sul sito.",
+    "SEC3_TITLE": "3. Finalità del Trattamento",
+    "SEC3_TEXT": "I tuoi dati personali vengono trattati per le seguenti finalità: rispondere alle tue richieste di informazioni o preventivi, permetterti di accedere all'area riservata ed inserire annunci, adempiere agli obblighi legali e fiscali, e migliorare la sicurezza e l'usabilità del sito web.",
+    "SEC4_TITLE": "4. Condivisione e Conservazione dei Dati",
+    "SEC4_TEXT": "Non vendiamo né cediamo i tuoi dati personali a terzi. Condividiamo i dati solo con fornitori di servizi di fiducia necessari al funzionamento del sito (come Firebase per l'autenticazione/database e Cloudinary per i media). I dati vengono conservati per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti, in conformità con la normativa vigente.",
+    "SEC5_TITLE": "5. I Tuoi Diritti (GDPR)",
+    "SEC5_TEXT": "In conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR), hai il diritto di accedere ai tuoi dati personali, richiederne la rettifica o la cancellazione, limitarne il trattamento, opporti al trattamento e richiedere la portabilità dei dati. Per esercitare questi diritti, invia un'email a amministrazionebocconisrl@gmail.com."
+  },
+  "TERMS": {
+    "TITLE": "Termini e Condizioni",
+    "SUBTITLE": "Condizioni d'uso del servizio",
+    "LAST_UPDATED": "Ultimo aggiornamento: Luglio 2026",
+    "INTRO": "I seguenti Termini e Condizioni regolano l'accesso e l'uso del sito web e dei servizi offerti da Bocconi Srl. Accedendo o utilizzando il nostro sito, accetti di essere vincolato da queste condizioni. Se non accetti una qualsiasi parte dei termini, ti invitiamo a non utilizzare i nostri servizi.",
+    "SEC1_TITLE": "1. Utilizzo del Sito",
+    "SEC1_TEXT": "L'utente si impegna a utilizzare il sito web e i suoi servizi esclusivamente per scopi leciti e in conformità con le leggi vigenti. È vietato qualsiasi utilizzo del sito che possa causare danni, interruzioni o sovraccarichi alle infrastrutture digitali o compromettere la sicurezza dei sistemi di Bocconi Srl.",
+    "SEC2_TITLE": "2. Account Utente e Registrazione",
+    "SEC2_TEXT": "Per accedere ad alcune funzionalità riservate (come la gestione degli annunci), potrebbe essere richiesta la creazione di un account. L'utente è responsabile della riservatezza delle credenziali del proprio account e di tutte le attività svolte tramite lo stesso. Bocconi Srl si riserva il diritto di sospendere o cancellare account in caso di violazione delle presenti condizioni.",
+    "SEC3_TITLE": "3. Proprietà Intellettuale",
+    "SEC3_TEXT": "Tutti i contenuti presenti sul sito (testi, grafiche, loghi, icone, immagini, video, software) sono di proprietà esclusiva di Bocconi Srl o dei suoi partner commerciali e sono protetti dalle leggi sul diritto d'autore e sulla proprietà intellettuale. Ne è vietata la riproduzione, distribuzione o diffusione senza esplicita autorizzazione scritta.",
+    "SEC4_TITLE": "4. Limitazione di Responsabilità",
+    "SEC4_TEXT": "Bocconi Srl si impegna a mantener le informazioni sul sito quanto più accurate e aggiornate possibile, ma non fornisce alcuna garanzia esplicita o implicita sulla completezza o accuratezza delle stesse. Bocconi Srl non sarà responsabile per eventuali danni diretti, indiretti o consequenziali derivanti dall'uso o dall'impossibilità di usare il sito web o i suoi servizi.",
+    "SEC5_TITLE": "5. Modifiche e Legge Applicabile",
+    "SEC5_TEXT": "Ci riserviamo il diritto di modificare questi Termini e Condizioni in qualsiasi momento. Le modifiche saranno efficaci non appena pubblicate sul sito. Questi termini sono regolati e interpretati in conformità con le leggi dello Stato Italiano. Qualsiasi controversia sarà di competenza esclusiva del Foro di Taranto."
   }
 }

@@ -1,0 +1,125 @@
+.legal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  background-color: var(--bg-light);
+  min-height: calc(100vh - 80px);
+  width: 100%;
+}
+
+.legal-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 4px; // Coerente con lo stile squadrato del sito
+  max-width: 850px;
+  width: 100%;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.back-link {
+  margin-bottom: 2rem;
+
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-main);
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--accent);
+
+      svg {
+        transform: translateX(-4px);
+      }
+    }
+  }
+}
+
+.legal-header {
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    margin-bottom: 0.75rem;
+  }
+
+  .last-updated {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.legal-body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  line-height: 1.7;
+
+  .intro-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-section {
+    margin-bottom: 2.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-family: var(--font-heading);
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.975rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

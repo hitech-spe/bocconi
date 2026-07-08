@@ -36,3 +36,4 @@ src/**/*.css
 src/**/*.css.map
 /.idea/watcherTasks.xml
 /.idea/inspectionProfiles/Project_Default.xml
+/GEMINI.md

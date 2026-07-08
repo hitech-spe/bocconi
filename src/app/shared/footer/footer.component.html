@@ -55,6 +55,11 @@
                 <p>P. IVA 03109890735</p>
                 <p>&copy; 2026 BOCCONI SRL</p>
                 <p>{{ 'FOOTER.RIGHTS' | translate }}</p>
+                <div class="legal-links">
+                    <a [routerLink]="['/privacy']">{{ 'FOOTER.PRIVACY' | translate }}</a>
+                    <span>|</span>
+                    <a [routerLink]="['/terms']">{{ 'FOOTER.TERMS' | translate }}</a>
+                </div>
             </div>
         </div>
 
