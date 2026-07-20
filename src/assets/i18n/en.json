@@ -293,36 +293,44 @@
   },
   "SEO": {
     "HOME": {
-      "TITLE": "Home | Bocconi Srl",
-      "DESCRIPTION": "Bocconi Srl is a mechanical and bodywork workshop in Massafra. We offer auto maintenance, repairs, and fast, professional assistance."
+      "TITLE": "Bocconi Srl - Auto Workshop, Body Shop & Commercial Vehicles Massafra",
+      "DESCRIPTION": "Bocconi Srl in Massafra (TA) is a specialized mechanical workshop and body shop. We offer car maintenance, vehicle outfitting, construction & demolition.",
+      "KEYWORDS": "mechanical workshop massafra, body shop massafra, vehicle customization, industrial vehicles massafra, demolition, construction massafra, bocconi srl"
     },
     "ABOUT": {
-      "TITLE": "About Us | Bocconi Srl",
-      "DESCRIPTION": "Discover the history and professionalism of Bocconi Srl in Massafra. Experts in workshop services, bodywork, and construction."
+      "TITLE": "About Us | Bocconi Srl Massafra - Repairs & Industrial Services",
+      "DESCRIPTION": "The history and excellence of Bocconi Srl in Massafra (TA). Over 30 years of experience in mechanics, bodywork, construction and vehicle customizing.",
+      "KEYWORDS": "about bocconi srl, workshop massafra, bocconi company, history bocconi srl"
     },
     "SERVICES": {
-      "TITLE": "Services | Bocconi Srl",
-      "DESCRIPTION": "Our services in Massafra: vehicle customization, industrial demolition, construction, mechanical workshop, yellow plates, and vehicle sales."
+      "TITLE": "Services & Assistance | Bocconi Srl Massafra",
+      "DESCRIPTION": "Our services in Massafra (TA): commercial vehicle outfitting and sales, mechanical workshop, bodywork, construction, demolition & ATP procedures.",
+      "KEYWORDS": "services bocconi srl, body shop massafra, demolition taranto, yellow plates atp, mctc testing"
     },
     "CONTACT": {
-      "TITLE": "Contact | Bocconi Srl",
-      "DESCRIPTION": "Contact Bocconi Srl in Massafra for quotes, assistance, and information on industrial and commercial vehicle services."
+      "TITLE": "Contact & Free Quotes | Bocconi Srl Massafra",
+      "DESCRIPTION": "Contact Bocconi Srl in Massafra (TA) for a free estimate on mechanical repairs, bodywork, outfitting or commercial vehicle sales.",
+      "KEYWORDS": "contact bocconi srl, phone workshop massafra, quote body shop massafra"
     },
     "LOGIN": {
-      "TITLE": "Login | Bocconi Srl",
-      "DESCRIPTION": "Reserved area for the management and publication of industrial and commercial vehicle announcements for Bocconi Srl."
+      "TITLE": "Login - Admin Area | Bocconi Srl",
+      "DESCRIPTION": "Reserved administrative area for managing and publishing in real time used commercial and industrial vehicle listings for Bocconi Srl.",
+      "KEYWORDS": "login bocconi srl, admin bocconi"
     },
     "ANNOUNCEMENTS": {
-      "TITLE": "Announcements | Bocconi Srl",
-      "DESCRIPTION": "Browse used and guaranteed industrial and commercial vehicle listings and offers by Bocconi Srl in Massafra."
+      "TITLE": "Used Commercial Vehicles & Camions | Bocconi Srl",
+      "DESCRIPTION": "Browse used and guaranteed vans, commercial vehicles and trucks listings and offers by Bocconi Srl in Massafra (TA). Unbeatable deals.",
+      "KEYWORDS": "used trucks sales massafra, used vans taranto, used commercial vehicles puglia"
     },
     "PRIVACY": {
       "TITLE": "Privacy Policy | Bocconi Srl",
-      "DESCRIPTION": "Privacy policy and personal data processing information for Bocconi Srl in compliance with GDPR."
+      "DESCRIPTION": "Complete information on personal data processing and privacy policy for users of the Bocconi Srl website, in compliance with GDPR.",
+      "KEYWORDS": "privacy policy bocconi srl"
     },
     "TERMS": {
-      "TITLE": "Terms & Conditions | Bocconi Srl",
-      "DESCRIPTION": "Terms and conditions of use for the website and commercial/industrial services of Bocconi Srl."
+      "TITLE": "Terms and Conditions of Service | Bocconi Srl",
+      "DESCRIPTION": "General terms and conditions of use for the portal and services offered by Bocconi Srl to companies and private clients.",
+      "KEYWORDS": "terms conditions bocconi srl"
     }
   }
 }

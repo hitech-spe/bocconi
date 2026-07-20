@@ -1,7 +1,7 @@
-import {Component, inject, signal, computed} from '@angular/core';
+import {Component, inject, signal, computed, OnDestroy} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule} from '@angular/forms';
-import {Observable, combineLatest, map} from 'rxjs';
+import {Observable, combineLatest, map, tap} from 'rxjs';
 import {toObservable} from '@angular/core/rxjs-interop';
 import {FirestoreService} from '../../services/firestore.service';
 import {Announcement} from '../../models/announcement.model';
@@ -18,7 +18,7 @@ import {SEOService} from "../../services/seo.service";
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, TranslateModule, FormsModule]
 })
-export class AnnouncementsComponent {
+export class AnnouncementsComponent implements OnDestroy {
     private authService = inject(AuthService);
     user$ = this.authService.user$;
     private firestoreService = inject(FirestoreService);
@@ -55,6 +55,10 @@ export class AnnouncementsComponent {
     startPercentY = 50;
     isEditorOpen = false;
     editingImageIndex: number | null = null;
+
+    ngOnDestroy(): void {
+        this.seoService.removePageSchema();
+    }
 
     constructor() {
         this.seoService.trackSEO('SEO.ANNOUNCEMENTS');
@@ -109,6 +113,9 @@ export class AnnouncementsComponent {
                 });
 
                 return filtered;
+            }),
+            tap(filtered => {
+                this.seoService.updateAnnouncementsSchema(filtered);
             })
         );
 

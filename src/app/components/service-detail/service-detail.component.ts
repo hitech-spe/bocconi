@@ -318,6 +318,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
     if (this.langChangeSub) {
       this.langChangeSub.unsubscribe();
     }
+    this.seoService.removePageSchema();
   }
 
   private updateService(id: string): void {
@@ -331,6 +332,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy {
           this.service.description,
           imageUrl
         );
+        this.seoService.updateServiceSchema(this.service);
       }
     }
   }

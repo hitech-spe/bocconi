@@ -305,36 +305,44 @@
   },
   "SEO": {
     "HOME": {
-      "TITLE": "Home | Bocconi Srl",
-      "DESCRIPTION": "Bocconi Srl è un’officina meccanica e carrozzeria a Massafra. Offriamo manutenzione auto, riparazioni e assistenza rapida e professionale."
+      "TITLE": "Bocconi Srl - Officina Meccanica, Carrozzeria e Veicoli Industriali Massafra",
+      "DESCRIPTION": "Bocconi Srl a Massafra (TA) è un'officina meccanica e carrozzeria specializzata. Offriamo manutenzione auto, allestimento veicoli, edilizia e demolizioni.",
+      "KEYWORDS": "officina meccanica massafra, carrozzeria massafra, allestimento veicoli, veicoli industriali massafra, demolizioni, edilizia massafra, bocconi srl"
     },
     "ABOUT": {
-      "TITLE": "Chi Siamo | Bocconi Srl",
-      "DESCRIPTION": "Scopri la storia e la professionalità di Bocconi Srl a Massafra. Esperti in officina meccanica, carrozzeria ed edilizia."
+      "TITLE": "Chi Siamo | Bocconi Srl Massafra - Riparazioni e Servizi Industriali",
+      "DESCRIPTION": "La storia e l'eccellenza di Bocconi Srl a Massafra (TA). Oltre 30 anni di esperienza in meccanica, carrozzeria, edilizia e allestimento veicoli speciali.",
+      "KEYWORDS": "chi siamo bocconi srl, officina massafra, azienda bocconi, storia bocconi srl"
     },
     "SERVICES": {
-      "TITLE": "Servizi | Bocconi Srl",
-      "DESCRIPTION": "I nostri servizi a Massafra: allestimento veicoli, demolizioni industriali, edilizia, officina meccanica, targhe gialle, vendita veicoli commerciali e altro."
+      "TITLE": "Servizi e Assistenza | Bocconi Srl Massafra",
+      "DESCRIPTION": "I nostri servizi a Massafra (TA): allestimento e vendita veicoli commerciali, officina meccanica, carrozzeria, edilizia, demolizioni e pratiche ATP.",
+      "KEYWORDS": "servizi bocconi srl, carrozzeria massafra, demolizioni taranto, targhe gialle atp, collaudi mctc"
     },
     "CONTACT": {
-      "TITLE": "Contatti | Bocconi Srl",
-      "DESCRIPTION": "Contatta Bocconi Srl a Massafra per preventivi, assistenza e informazioni su veicoli e servizi industriali."
+      "TITLE": "Contatti e Preventivi Gratuiti | Bocconi Srl Massafra",
+      "DESCRIPTION": "Contatta Bocconi Srl a Massafra (TA) per un preventivo gratuito per riparazioni meccaniche, carrozzeria, allestimenti o vendita veicoli commerciali.",
+      "KEYWORDS": "contatti bocconi srl, telefono officina massafra, preventivo carrozzeria massafra"
     },
     "LOGIN": {
-      "TITLE": "Accedi | Bocconi Srl",
-      "DESCRIPTION": "Area riservata per la gestione e pubblicazione degli annunci di veicoli industriali e commerciali Bocconi Srl."
+      "TITLE": "Accedi - Area Amministrativa | Bocconi Srl",
+      "DESCRIPTION": "Area riservata per la gestione e pubblicazione in tempo reale degli annunci dei veicoli industriali e commerciali usati di Bocconi Srl.",
+      "KEYWORDS": "login bocconi srl, admin bocconi"
     },
     "ANNOUNCEMENTS": {
-      "TITLE": "Annunci | Bocconi Srl",
-      "DESCRIPTION": "Sfoglia gli annunci e le offerte di veicoli industriali e commerciali usati e garantiti da Bocconi Srl a Massafra."
+      "TITLE": "Veicoli Commerciali e Camion Usati Garantiti | Bocconi Srl",
+      "DESCRIPTION": "Sfoglia gli annunci e le offerte di furgoni, veicoli commerciali e camion usati e garantiti da Bocconi Srl a Massafra (TA). Occasioni imperdibili.",
+      "KEYWORDS": "vendita camion usati massafra, furgoni usati taranto, veicoli commerciali usati puglia"
     },
     "PRIVACY": {
-      "TITLE": "Privacy Policy | Bocconi Srl",
-      "DESCRIPTION": "Informativa sulla privacy e sul trattamento dei dati personali di Bocconi Srl in conformità al GDPR."
+      "TITLE": "Informativa sulla Privacy | Bocconi Srl",
+      "DESCRIPTION": "Informativa completa sul trattamento dei dati personali e sulla privacy per gli utenti del sito web di Bocconi Srl, in conformità con il GDPR.",
+      "KEYWORDS": "privacy policy bocconi srl"
     },
     "TERMS": {
-      "TITLE": "Termini e Condizioni | Bocconi Srl",
-      "DESCRIPTION": "Termini e condizioni d'uso del sito web e dei servizi commerciali e industriali di Bocconi Srl."
+      "TITLE": "Termini e Condizioni di Servizio | Bocconi Srl",
+      "DESCRIPTION": "Termini e condizioni generali d'uso per il portale e per i servizi offerti da Bocconi Srl ad aziende e privati.",
+      "KEYWORDS": "termini condizioni bocconi srl"
     }
   }
 }
