@@ -107,7 +107,7 @@ export class SEOService {
     if (keywords) {
       this.metaService.updateTag({ name: 'keywords', content: keywords });
     } else {
-      this.metaService.updateTag({ name: 'keywords', content: 'officina meccanica massafra, carrozzeria massafra, allestimento veicoli, veicoli industriali, demolizioni, edilizia massafra, bocconi srl' });
+      this.metaService.updateTag({ name: 'keywords', content: 'officina meccanica massafra, carrozzeria massafra, allestimento veicoli, veicoli industriali, demolizioni, edilizia massafra, bocconi srl, soccorso massafra, vendita auto, furgoni, noleggio auto' });
     }
 
     // Open Graph (Facebook, LinkedIn, Whatsapp, ecc.)
