@@ -373,6 +373,10 @@ export default async function handler(request: Request, context: Context) {
     return response;
   }
 
+  // Identifica se la richiesta proviene da un bot/crawler o social pre-rendering agent
+  const userAgent = request.headers.get("user-agent") || "";
+  const isBot = /bot|crawl|spider|slurp|lighthouse|chrome-lighthouse|facebookexternalhit|twitterbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp|telegram|discord/i.test(userAgent);
+
   try {
     const url = new URL(request.url);
     const cleanPath = url.pathname.toLowerCase().split("#")[0].split("?")[0];
@@ -493,7 +497,7 @@ export default async function handler(request: Request, context: Context) {
       // Iniezione di contenuto HTML semantico all'interno di <app-root> per favorire i crawler no-JS
       .on("app-root", {
         element(element) {
-          if (seo?.htmlContent) {
+          if (isBot && seo?.htmlContent) {
             element.setInnerContent(seo.htmlContent, { html: true });
           }
         }
