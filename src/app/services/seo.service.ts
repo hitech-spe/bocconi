@@ -96,7 +96,16 @@ export class SEOService {
   private updateTags(title: string, description: string, image?: string, keywords?: string): void {
     const ogImage = this.getAbsoluteImageUrl(image);
     const cleanPath = this.router.url.split('#')[0].split('?')[0];
-    const ogUrl = `${this.baseDomain}${cleanPath === '/' ? '' : cleanPath}`;
+    
+    // Normalizzazione percorso per evitare contenuti duplicati su /home
+    let ogPath = cleanPath === '/' ? '' : cleanPath;
+    if (cleanPath === '/home' || cleanPath === '/') {
+      ogPath = '';
+    } else if (cleanPath.startsWith('/home/services/')) {
+      const serviceId = cleanPath.substring(15);
+      ogPath = `/services/${serviceId}`;
+    }
+    const ogUrl = `${this.baseDomain}${ogPath}`;
     const locale = this.translate.currentLang === 'en' ? 'en_US' : 'it_IT';
 
     // HTML Standard
@@ -137,8 +146,17 @@ export class SEOService {
       this.document.head.appendChild(link);
     }
     const path = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
-    // Evita slash finale doppio su home
-    const canonicalHref = `${this.baseDomain}${path === '/' ? '' : path}`;
+    
+    // Normalizzazione percorso per evitare contenuti duplicati su /home
+    let canonicalPath = path;
+    if (path === '/home' || path === '/') {
+      canonicalPath = '';
+    } else if (path.startsWith('/home/services/')) {
+      const serviceId = path.substring(15);
+      canonicalPath = `/services/${serviceId}`;
+    }
+
+    const canonicalHref = `${this.baseDomain}${canonicalPath}`;
     link.setAttribute('href', canonicalHref);
   }
 

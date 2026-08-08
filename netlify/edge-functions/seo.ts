@@ -393,6 +393,13 @@ export default async function handler(request: Request, context: Context) {
       serviceId = cleanPath.substring(15);
     }
 
+    // Normalizzazione percorso per evitare contenuti duplicati su /home
+    if (cleanPath === "/home") {
+      canonicalUrl = BASE_DOMAIN;
+    } else if (cleanPath.startsWith("/home/services/")) {
+      canonicalUrl = `${BASE_DOMAIN}/services/${serviceId}`;
+    }
+
     if (serviceId && SERVICES_DATA[serviceId]) {
       seo = SERVICES_DATA[serviceId];
     } else {

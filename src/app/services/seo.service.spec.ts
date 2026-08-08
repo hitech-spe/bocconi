@@ -2,8 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { SEOService } from './seo.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { of, Subject } from 'rxjs';
 
 describe('SEOService', () => {
   let service: SEOService;
@@ -11,6 +12,9 @@ describe('SEOService', () => {
   let metaService: Meta;
   let translateService: TranslateService;
   let router: Router;
+  let document: Document;
+
+  const routerEventsSubject = new Subject<any>();
 
   const mockTranslateService = {
     onLangChange: of({ lang: 'it' }),
@@ -24,7 +28,7 @@ describe('SEOService', () => {
   };
 
   const mockRouter = {
-    events: of(),
+    events: routerEventsSubject.asObservable(),
     url: '/'
   };
 
@@ -44,6 +48,7 @@ describe('SEOService', () => {
     metaService = TestBed.inject(Meta);
     translateService = TestBed.inject(TranslateService);
     router = TestBed.inject(Router);
+    document = TestBed.inject(DOCUMENT);
   });
 
   it('should be created', () => {
@@ -58,5 +63,21 @@ describe('SEOService', () => {
 
     expect(titleService.setTitle).toHaveBeenCalledWith('Direct Title');
     expect(metaService.updateTag).toHaveBeenCalledWith({ name: 'description', content: 'Direct Description' });
+  });
+
+  it('should update canonical URL to root when navigating to /home', () => {
+    routerEventsSubject.next(new NavigationEnd(1, '/home', '/home'));
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    expect(canonicalLink).toBeTruthy();
+    expect(canonicalLink?.getAttribute('href')).toBe('https://bocconisrl.com');
+  });
+
+  it('should update canonical URL to specific service URL when navigating to /home/services/test-service', () => {
+    routerEventsSubject.next(new NavigationEnd(1, '/home/services/test-service', '/home/services/test-service'));
+    
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    expect(canonicalLink).toBeTruthy();
+    expect(canonicalLink?.getAttribute('href')).toBe('https://bocconisrl.com/services/test-service');
   });
 });
